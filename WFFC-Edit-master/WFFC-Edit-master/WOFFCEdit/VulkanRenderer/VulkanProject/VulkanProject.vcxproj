@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{2B4144B3-A6D6-433F-845B-7B0955007636}</ProjectGuid>
+    <RootNamespace>VulkanProject</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\GLFW\include;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\glm\glm;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Include;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanProject;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\GLFW;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\GLFW\lib-vc2015;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\glm\glm;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Lib32;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\Shaders;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanProject\Textures;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\1503395\Downloads\VulkanProject\VulkanProject\GLFW\include;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\glm;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Include;C:\Users\1503395\Downloads\VulkanProject\VulkanProject;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\GLFW\include\GLFW;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\glm\glm;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\GLFW;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\1503395\Downloads\VulkanProject\VulkanProject\GLFW\lib-vc2015;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\glm\glm;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Lib32;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\glm;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\1503395\Downloads\VulkanProject\VulkanProject\Shaders;C:\Users\1503395\Downloads\VulkanProject\VulkanProject\VulkanProject\Textures;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\VulkanSDK\1.1.73.0\Include</IncludePath>
+    <LibraryPath>C:\VulkanSDK\1.1.73.0\Lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\VulkanSDK\1.1.73.0\Include</IncludePath>
+    <LibraryPath>C:\VulkanSDK\1.1.73.0\Lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\GLFW\include;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\glm;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vulkan-1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\GLFW\include;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\glm;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\TinyObjLoader;C:\Users\Liam Maclean\Documents\GitHub\VulkanProject\VulkanProject\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>vulkan-1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BaseModel.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ImportedModel.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PlaneMesh.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Shared.cpp" />
+    <ClCompile Include="VisibilityBuffer.cpp" />
+    <ClCompile Include="VulkanDeferredApplication.cpp" />
+    <ClCompile Include="Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseModel.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="ImportedModel.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="PlaneMesh.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shared.h" />
+    <ClInclude Include="VisibilityBuffer.h" />
+    <ClInclude Include="VulkanDeferredApplication.h" />
+    <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Shaders\deferred.frag" />
+    <None Include="..\Shaders\deferred.vert" />
+    <None Include="..\Shaders\mrt.frag" />
+    <None Include="..\Shaders\mrt.vert" />
+    <None Include="..\Shaders\VBID.frag" />
+    <None Include="..\Shaders\VBID.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
