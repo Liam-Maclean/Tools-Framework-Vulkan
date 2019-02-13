@@ -20,11 +20,11 @@ namespace std {
 	};
 }
 
-class BaseModel
+class BaseMesh
 {
 public:
-	BaseModel();
-	~BaseModel();
+	BaseMesh();
+	~BaseMesh();
 
 	//Create model function (where vertices and indices are created)
 	virtual void CreateModel();

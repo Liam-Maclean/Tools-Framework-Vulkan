@@ -7,7 +7,7 @@
 #include <fstream>
 #include "glm/glm.hpp"
 
-class BaseModel;
+class BaseMesh;
 
 namespace vk
 {
@@ -120,9 +120,25 @@ namespace vk
 
 		struct Model
 		{
+			//Mesh, descriptor set and texture details
 			VkDescriptorSet descriptorSet;
-			BaseModel* model;
+			BaseMesh* mesh;
 			vk::wrappers::Texture2D texture;
+
+			//String details (File paths and name)
+			const char* name;
+			const char* model_path;
+			const char* texture_path;
+
+			//transformation details (matrices, model transforms)
+			glm::mat4 transfomation_matrix;
+			glm::mat4 scale_matrix;
+			glm::mat4 rotation_matrix;
+			glm::mat4 model_matrix;
+
+			glm::vec4 position;
+			glm::vec4 scale;
+			glm::vec4 rotation;
 		};
 
 	}

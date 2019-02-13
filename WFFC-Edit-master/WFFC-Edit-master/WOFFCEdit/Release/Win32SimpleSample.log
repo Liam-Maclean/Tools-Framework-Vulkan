@@ -1,12 +1,54 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(941,5): warning MSB8027: Two or more files with the name of Main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Main.cpp, VulkanRenderer\VulkanProject\Main.cpp.
+  MFCFrame.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MFCMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  Main.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  ToolMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(74): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(75): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(76): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(77): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(78): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(79): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(81): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(96): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(100): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(101): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(102): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(106): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(107): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  BaseModel.cpp
+  Camera.cpp
+  ImportedModel.cpp
+  Main.cpp
+  Plane.cpp
+  PlaneMesh.cpp
+  Renderer.cpp
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(48): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(59): warning C4018: '<': signed/unsigned mismatch
+  Shared.cpp
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\shared.cpp(108): warning C4244: 'initializing': conversion from 'std::streamoff' to '::size_t', possible loss of data
+  VisibilityBuffer.cpp
   VulkanDeferredApplication.cpp
-m:\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(617): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
-m:\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1101): warning C4018: '<': signed/unsigned mismatch
-m:\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1182): warning C4552: '-': operator has no effect; expected operator with side-effect
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(617): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1101): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1182): warning C4552: '-': operator has no effect; expected operator with side-effect
+  Window.cpp
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(320): warning C4552: '|': operator has no effect; expected operator with side-effect
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(570): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(1605): warning C4018: '<': signed/unsigned mismatch
 Release\Main.obj : warning LNK4042: object specified more than once; extras ignored
   Generating code
-  1 of 5365 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(341): warning C4715: 'Renderer::_GetMemoryType': not all control paths return a value
+  3811 of 5365 functions (71.0%) were compiled, the rest were copied from previous compilation.
+    39 functions were new in current compilation
+    17 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Win32SimpleSample.vcxproj -> M:\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Release\WoFEdit.exe
+  Win32SimpleSample.vcxproj -> \\StuHome\HomeDrive5$\1503395\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Release\WoFEdit.exe
