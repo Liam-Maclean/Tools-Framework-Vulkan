@@ -1,15 +1,15 @@
 #include "BaseModel.h"
 
-BaseModel::BaseModel()
+BaseMesh::BaseMesh()
 {
 	CreateModel();
 }
 
-BaseModel::~BaseModel()
+BaseMesh::~BaseMesh()
 {
 }
 
-void BaseModel::CreateModel()
+void BaseMesh::CreateModel()
 {
 
 }

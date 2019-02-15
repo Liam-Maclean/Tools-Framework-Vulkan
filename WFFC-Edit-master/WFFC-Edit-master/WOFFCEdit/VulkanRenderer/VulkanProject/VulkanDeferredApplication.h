@@ -13,6 +13,8 @@
 
 class VulkanDeferredApplication : public VulkanWindow
 {
+
+
 public:
 	VulkanDeferredApplication(Renderer* renderer, int width, int height)
 		:VulkanWindow(renderer, width, height)
@@ -55,7 +57,6 @@ public:
 
 
 
-
 	void CreateCamera();
 	void InitialiseVulkanApplication();
 	void Update(CRect screenRect);
@@ -78,6 +79,46 @@ public:
 	void CreateGBuffer();
 	void CreateShadowPassCommandBuffers();
 	void CreateDeferredCommandBuffers();
+
+
+	inline void ToggleWireframeMode() {
+		if (wireframeModeToggle == true)
+		{
+			wireframeModeToggle = false;
+		}
+		else
+		{
+			wireframeModeToggle = true;
+		}
+		renderChange = true;
+		 
+	};
+
+	inline void ToggleLighting() {
+		if (lightingToggled != 1)
+		{
+			lightingToggled = 1;
+		}
+		else
+		{
+			lightingToggled = 0;
+		}
+	};
+
+	inline void ToggleNormalMode()
+	{
+		if (lightingToggled != 2)
+		{
+			lightingToggled = 2;
+		}
+		else
+		{
+			lightingToggled = 0;
+		}
+
+	}
+
+
 
 	vertice vertices;
 	uboVS offScreenUniformVSData;
@@ -115,6 +156,7 @@ public:
 	Camera* camera;
 
 	vk::wrappers::Buffer lightViewMatrixBuffer;
+	vk::wrappers::Buffer lightingEnabledBuffer;
 
 	glm::mat4 testLightViewMatrix;
 	vk::wrappers::Buffer dynamicUboBuffer;
@@ -123,6 +165,11 @@ public:
 	vk::wrappers::Buffer fullScreenVertexUBOBuffer;
 	vk::wrappers::Buffer offScreenVertexUBOBuffer;
 
+private:
+
+	float lightingToggled = 0;
+	bool wireframeModeToggle = false;
+	bool renderChange = false;
 
 
 };

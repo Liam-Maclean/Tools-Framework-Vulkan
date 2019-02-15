@@ -44,6 +44,10 @@ layout (std430, binding = 5) readonly buffer directionalLightBuffer
 {
 	directionalLight directionalLightData[];
 };
+layout (binding = 6) uniform LightingEnabled
+{
+	float isEnabled;
+}lightingEnabled;
 
 //Out
 layout (location = 0) out vec4 outFragColor;
@@ -65,23 +69,35 @@ void main()
 	//Set the lowest possible ambient color for the scene
 	diffuseComponent = ambientColor;
 	
-	for(int i = 0; i < 1; i++)
+	if (lightingEnabled.isEnabled == 1)
 	{
-		//Test lighting for a single directional light structure
-		lightDir = directionalLightData[i].direction;
-		
-		//get light intensity of the dot product of the normal and light direction
-		lightIntensity = max(dot(normal, lightDir.xyz), 0.0f);
-		
-		//if the pixel is lit
-		if (lightIntensity > 0.0f)
+		for(int i = 0; i < 1; i++)
 		{
-			diffuseComponent += (directionalLightData[i].diffuse * lightIntensity);
-			//diffuseComponent = normalize(diffuseComponent);
+			//Test lighting for a single directional light structure
+			lightDir = directionalLightData[i].direction;
+			
+			//get light intensity of the dot product of the normal and light direction
+			lightIntensity = max(dot(normal, lightDir.xyz), 0.0f);
+			
+			//if the pixel is lit
+			if (lightIntensity > 0.0f)
+			{
+				diffuseComponent += (directionalLightData[i].diffuse * lightIntensity);
+				//diffuseComponent = normalize(diffuseComponent);
+			}
 		}
-	}
 	
-	outFragColor = (albedo);
+	
+		outFragColor = (diffuseComponent * albedo);
+	}
+	if (lightingEnabled.isEnabled == 2)
+	{
+		outFragColor = vec4(normal.xyz, 1.0f);
+	}
+	if (lightingEnabled.isEnabled == 0)
+	{
+		outFragColor = albedo;
+	}
 		
 
 }

@@ -1,11 +1,11 @@
 #pragma once
 #include "BaseModel.h"
 class ImportedModel :
-	public BaseModel
+	public BaseMesh
 {
 public:
 	ImportedModel(std::string filePath)
-		:BaseModel()
+		:BaseMesh()
 	{
 		ImportedModel::LoadMeshFromFile(filePath);
 	};

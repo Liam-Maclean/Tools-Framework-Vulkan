@@ -35,6 +35,12 @@ void VulkanDeferredApplication::Update(CRect screenRect)
 {
 #ifdef WIN32
 		VulkanWindow::screenSize = screenRect;
+		if (renderChange == true)
+		{
+			VulkanDeferredApplication::CreateDeferredCommandBuffers();
+			renderChange = false;
+		
+		}
 		VulkanDeferredApplication::DrawFrame();
 		//camera->HandleInput(_window);
 #else
@@ -495,20 +501,23 @@ void VulkanDeferredApplication::UpdateUniformBuffer(uint32_t currentImage)
 	offScreenUniformVSData.view = camera->GetViewMatrix();
 	offScreenUniformVSData.projection = camera->GetProjectionMatrix();
 	
-	
 	void* data;
 	vkMapMemory(_renderer->GetVulkanDevice(), offScreenVertexUBOBuffer.memory, 0, sizeof(uboVS), 0, &data);
 	memcpy(data, &offScreenUniformVSData, sizeof(uboVS));
 	vkUnmapMemory(_renderer->GetVulkanDevice(), offScreenVertexUBOBuffer.memory);
-
-	//// Flush to make changes visible to the host 
-	//VkMappedMemoryRange memoryRange = {};
-	//memoryRange.sType = VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE;
-	//memoryRange.memory = dynamicUboBuffer.memory;
-	//memoryRange.size = bufferSize;
-	//vkFlushMappedMemoryRanges(_renderer->GetVulkanDevice(), 1, &memoryRange);
-	//
 	offScreenVertexUBOBuffer.SetUpDescriptorSet();
+
+
+	void* data2;
+	vkMapMemory(_renderer->GetVulkanDevice(), lightingEnabledBuffer.memory, 0, sizeof(uboVS), 0, &data2);
+	memcpy(data2, &lightingToggled, sizeof(float));
+	vkUnmapMemory(_renderer->GetVulkanDevice(), lightingEnabledBuffer.memory);
+	lightingEnabledBuffer.SetUpDescriptorSet();
+
+	//if ()
+	//void* tempData;
+	//vkMapMemory(_renderer->GetVulkanDevice(), _directionalLightBufferMemory, 0, sizeof(directionalLight), 0, &tempData)
+	//memcpy(tempData, )
 }
 
 //loads a shader file
@@ -571,11 +580,11 @@ void VulkanDeferredApplication::_CreateGeometry()
 
 	_models.push_back(new vk::wrappers::Model());
 	_models.push_back(new vk::wrappers::Model());
-	_models[0]->model = houseModel;
+	_models[0]->mesh = houseModel;
 	_models[0]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/Penguin Diffuse Color.png");
 	_models[0]->texture.imageView = _CreateTextureImageView(_models[0]->texture.image);
 	_models[0]->texture.sampler = _CreateTextureSampler();
-	_models[1]->model = planeMesh;
+	_models[1]->mesh = planeMesh;
 	_models[1]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/BrickTexture.jpg");
 	_models[1]->texture.imageView = _CreateTextureImageView(_models[1]->texture.image);
 	_models[1]->texture.sampler = _CreateTextureSampler();
@@ -671,6 +680,10 @@ void VulkanDeferredApplication::SetUpUniformBuffers()
 	vkMapMemory(_renderer->GetVulkanDevice(), offScreenVertexUBOBuffer.memory, 0, sizeof(uboVS), 0, &data);
 	memcpy(data, &offScreenUniformVSData, sizeof(uboVS));
 	offScreenVertexUBOBuffer.SetUpDescriptorSet();
+
+	_CreateShaderBuffer(_renderer->GetVulkanDevice(), sizeof(float), &lightingEnabledBuffer.buffer, &lightingEnabledBuffer.memory, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, &lightingToggled);
+	lightingEnabledBuffer.SetUpDescriptorSet();
+
 }
 
 //Creates the shadow render pass
@@ -962,9 +975,9 @@ void VulkanDeferredApplication::CreateShadowPassCommandBuffers()
 		uint32_t dynamicOffset = i * static_cast<uint32_t>(dynamicAlignment);
 		//binding descriptor sets and drawing model on the screen
 		vkCmdBindDescriptorSets(shadowCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::shadowMap], 0, 1, &shadowDescriptorSet, 1, &dynamicOffset);
-		vkCmdBindVertexBuffers(shadowCmdBuffer, 0, 1, &_models[i]->model->GetVertexBuffer()->buffer, offsets);
-		vkCmdBindIndexBuffer(shadowCmdBuffer, _models[i]->model->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
-		vkCmdDrawIndexed(shadowCmdBuffer, _models[i]->model->GetIndexCount(), 1, 0, 0, 0);
+		vkCmdBindVertexBuffers(shadowCmdBuffer, 0, 1, &_models[i]->mesh->GetVertexBuffer()->buffer, offsets);
+		vkCmdBindIndexBuffer(shadowCmdBuffer, _models[i]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
+		vkCmdDrawIndexed(shadowCmdBuffer, _models[i]->mesh->GetIndexCount(), 1, 0, 0, 0);
 	}
 
 
@@ -1025,10 +1038,16 @@ void VulkanDeferredApplication::_CreateDescriptorSets()
 		directionalLightDescriptorInfo.offset = 0;
 		directionalLightDescriptorInfo.range = sizeof(vk::wrappers::DirectionalLight) * _directionalLights.size();
 
+		//directional lights
+		VkDescriptorBufferInfo lightingEnabledDescriptorInfo = {};
+		lightingEnabledDescriptorInfo.buffer = lightingEnabledBuffer.buffer;
+		lightingEnabledDescriptorInfo.offset = 0;
+		lightingEnabledDescriptorInfo.range = sizeof(float);
+
 	
 
 		//Set up the write descriptor sets
-		std::array<VkWriteDescriptorSet, 6> descriptor_writes = {};
+		std::array<VkWriteDescriptorSet, 7> descriptor_writes = {};
 		//Binding 1: Position texture for offscreen rendering
 		descriptor_writes[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
 		descriptor_writes[0].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
@@ -1082,6 +1101,16 @@ void VulkanDeferredApplication::_CreateDescriptorSets()
 		descriptor_writes[5].descriptorCount = 1;
 		descriptor_writes[5].pImageInfo = 0;
 		descriptor_writes[5].pBufferInfo = &directionalLightDescriptorInfo;
+
+		descriptor_writes[6].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+		descriptor_writes[6].dstSet = _descriptorSets[i];
+		descriptor_writes[6].dstBinding = 6;
+		descriptor_writes[6].dstArrayElement = 0;
+		descriptor_writes[6].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+		descriptor_writes[6].descriptorCount = 1;
+		descriptor_writes[6].pImageInfo = 0;
+		descriptor_writes[6].pBufferInfo = &lightingEnabledDescriptorInfo;
+
 
 		//Update the descriptor set
 		vkUpdateDescriptorSets(_renderer->GetVulkanDevice(), static_cast<uint32_t>(descriptor_writes.size()), descriptor_writes.data(), 0, nullptr);
@@ -1264,7 +1293,14 @@ void VulkanDeferredApplication::_CreateDescriptorSetLayout()
 	directional_light_layout_binding.descriptorCount = 1;
 	directional_light_layout_binding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
 
-	std::vector<VkDescriptorSetLayoutBinding> deferredDescriptorSetLayoutBindings = {position_layout_binding, normal_layout_binding, albedo_layout_binding, point_light_layout_binding, spot_light_layout_binding, directional_light_layout_binding };
+	//directional light layout binding (Deferred offscreen buffer sampler)
+	VkDescriptorSetLayoutBinding lighting_enabled_layout_binding = {};
+	lighting_enabled_layout_binding.binding = 6;
+	lighting_enabled_layout_binding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+	lighting_enabled_layout_binding.descriptorCount = 1;
+	lighting_enabled_layout_binding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+	std::vector<VkDescriptorSetLayoutBinding> deferredDescriptorSetLayoutBindings = {position_layout_binding, normal_layout_binding, albedo_layout_binding, point_light_layout_binding, spot_light_layout_binding, directional_light_layout_binding,lighting_enabled_layout_binding };
 	VkDescriptorSetLayoutCreateInfo deferredDescriptorLayoutCreateInfo = {};
 	deferredDescriptorLayoutCreateInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
 	deferredDescriptorLayoutCreateInfo.pBindings = deferredDescriptorSetLayoutBindings.data();
@@ -1437,18 +1473,30 @@ void VulkanDeferredApplication::CreateDeferredCommandBuffers()
 			uint32_t dynamicOffset = i * static_cast<uint32_t>(dynamicAlignment);
 			//binding descriptor sets and drawing model on the screen
 
-			vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::offscreen]);
-			vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
-			vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->model->GetVertexBuffer()->buffer, offsets);
-			vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->model->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
-			vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->model->GetIndexCount(), 1, 0, 0, 0);
+			//vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::offscreen]);
+			//vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
+			//vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->mesh->GetVertexBuffer()->buffer, offsets);
+			//vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
+			//vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->mesh->GetIndexCount(), 1, 0, 0, 0);
 
 
-			vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::wireframe]);
-			vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
-			vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->model->GetVertexBuffer()->buffer, offsets);
-			vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->model->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
-			vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->model->GetIndexCount(), 1, 0, 0, 0);
+			if (wireframeModeToggle == true)
+			{
+				vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::wireframe]);
+				vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
+				vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->mesh->GetVertexBuffer()->buffer, offsets);
+				vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
+				vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->mesh->GetIndexCount(), 1, 0, 0, 0);
+			}
+			else
+			{
+
+				vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::offscreen]);
+				vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
+				vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->mesh->GetVertexBuffer()->buffer, offsets);
+				vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
+				vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->mesh->GetIndexCount(), 1, 0, 0, 0);
+			}
 		}
 
 

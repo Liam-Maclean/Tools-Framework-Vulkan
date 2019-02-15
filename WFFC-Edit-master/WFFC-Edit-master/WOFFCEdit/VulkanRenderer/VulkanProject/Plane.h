@@ -1,11 +1,11 @@
 #pragma once
 #include "BaseModel.h"
 class ScreenTarget :
-	public BaseModel
+	public BaseMesh
 {
 public:
 	ScreenTarget()
-		:BaseModel()
+		:BaseMesh()
 	{
 		ScreenTarget::CreateModel();
 	};

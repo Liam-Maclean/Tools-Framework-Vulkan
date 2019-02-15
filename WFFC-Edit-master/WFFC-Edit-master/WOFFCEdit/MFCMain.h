@@ -37,7 +37,9 @@ private:
 	afx_msg void MenuFileSaveTerrain();
 	afx_msg void MenuEditSelect();
 	afx_msg	void ToolBarButton1();
-
+	afx_msg	void WireFrameButton();
+	afx_msg	void LightsButton();
+	afx_msg	void NormalsButton();
 
 	DECLARE_MESSAGE_MAP()	// required macro for message map functionality  One per class
 };

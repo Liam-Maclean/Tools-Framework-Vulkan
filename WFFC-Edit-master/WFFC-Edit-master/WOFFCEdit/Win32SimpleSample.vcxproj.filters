@@ -17,6 +17,15 @@
     <Filter Include="SQLITE">
       <UniqueIdentifier>{a006b0b6-46b2-4c4f-808a-ec8fe3e790eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Renderer\Mesh Types">
+      <UniqueIdentifier>{d3bcc522-d3fa-4bf9-a615-23415d39568c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Utility">
+      <UniqueIdentifier>{81e0efd8-600c-4f73-819d-6865d6a2952a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Renderer Types">
+      <UniqueIdentifier>{b63a4987-5313-4cd1-b2a1-6b18b591ab8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -47,38 +56,38 @@
     <ClCompile Include="SelectDialogue.cpp">
       <Filter>MFC</Filter>
     </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\VisibilityBuffer.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Window.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\BaseModel.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Camera.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\ImportedModel.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="VulkanRenderer\VulkanProject\Main.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Plane.cpp">
-      <Filter>Renderer</Filter>
+    <ClCompile Include="VulkanRenderer\VulkanProject\BaseModel.cpp">
+      <Filter>Renderer\Mesh Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\ImportedModel.cpp">
+      <Filter>Renderer\Mesh Types</Filter>
     </ClCompile>
     <ClCompile Include="VulkanRenderer\VulkanProject\PlaneMesh.cpp">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Mesh Types</Filter>
     </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Renderer.cpp">
-      <Filter>Renderer</Filter>
+    <ClCompile Include="VulkanRenderer\VulkanProject\Plane.cpp">
+      <Filter>Renderer\Mesh Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\Camera.cpp">
+      <Filter>Renderer\Utility</Filter>
     </ClCompile>
     <ClCompile Include="VulkanRenderer\VulkanProject\Shared.cpp">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\Renderer.cpp">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\VisibilityBuffer.cpp">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.cpp">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\Window.cpp">
+      <Filter>Renderer\Renderer Types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,35 +123,35 @@
     <ClInclude Include="SelectDialogue.h">
       <Filter>MFC</Filter>
     </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\Shared.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\VisibilityBuffer.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\Window.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="VulkanRenderer\VulkanProject\BaseModel.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\Camera.h">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Mesh Types</Filter>
     </ClInclude>
     <ClInclude Include="VulkanRenderer\VulkanProject\ImportedModel.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\Plane.h">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Mesh Types</Filter>
     </ClInclude>
     <ClInclude Include="VulkanRenderer\VulkanProject\PlaneMesh.h">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Mesh Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\Plane.h">
+      <Filter>Renderer\Mesh Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\Camera.h">
+      <Filter>Renderer\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\Shared.h">
+      <Filter>Renderer\Utility</Filter>
     </ClInclude>
     <ClInclude Include="VulkanRenderer\VulkanProject\Renderer.h">
-      <Filter>Renderer</Filter>
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\VisibilityBuffer.h">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.h">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\Window.h">
+      <Filter>Renderer\Renderer Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

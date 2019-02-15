@@ -1,11 +1,11 @@
 #pragma once
 #include "BaseModel.h"
 class PlaneMesh :
-	public BaseModel
+	public BaseMesh
 {
 public:
 	PlaneMesh()
-		:BaseModel()
+		:BaseMesh()
 	{
 		PlaneMesh::CreateModel();
 	};

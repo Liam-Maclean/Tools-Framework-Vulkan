@@ -38,6 +38,21 @@ void ToolMain::onActionInitialise(HWND handle, int width, int height)
 	onActionLoad();
 }
 
+void ToolMain::onWireframeMode()
+{
+	ToggleWireframeMode();
+}
+
+void ToolMain::onLightEnabled()
+{
+	ToggleLighting();
+}
+
+void ToolMain::onNormalEnabled()
+{
+	ToggleNormalMode();
+}
+
 void ToolMain::onActionLoad()
 {
 	//load current chunk and objects into lists
@@ -62,20 +77,20 @@ void ToolMain::onActionLoad()
 	//loop for each row in results until there are no more rows.  ie for every row in the results. We create and object
 	while (sqlite3_step(pResults) == SQLITE_ROW)
 	{	
-		vk::wrappers::Model newSceneModel;
-		
-		//Load model information for vulkan model
-		newSceneModel.position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
-		newSceneModel.rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
-		newSceneModel.scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
-		newSceneModel.model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
-		newSceneModel.texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
-		
-		//After everything has loaded, compute the matrices
-		//newSceneModel.ComputeMatrices();
-
-		//Give the model to the vulkan renderer
-		_models.push_back(&newSceneModel);
+		//vk::wrappers::Model newSceneModel;
+		//
+		////Load model information for vulkan model
+		//newSceneModel.position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
+		//newSceneModel.rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
+		//newSceneModel.scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
+		//newSceneModel.model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
+		//newSceneModel.texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
+		//
+		////After everything has loaded, compute the matrices
+		////newSceneModel.ComputeMatrices();
+		//
+		////Give the model to the vulkan renderer
+		//_models.push_back(&newSceneModel);
 
 		//Model load info
 		//SceneObject newSceneObject;

@@ -336,9 +336,9 @@ void VisibilityBuffer::_CreateVIDCommandBuffers()
 
 		//House
 		vkCmdBindDescriptorSets(IDCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::vbID], 0, 1, &descriptorSets.house, 0, NULL);
-		vkCmdBindVertexBuffers(IDCmdBuffer, 0, 1, &_models[0]->model->GetVertexBuffer()->buffer, offsets);
-		vkCmdBindIndexBuffer(IDCmdBuffer, _models[0]->model->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
-		vkCmdDrawIndexed(IDCmdBuffer, _models[0]->model->GetIndexCount(), 1, 0, 0, 0);
+		vkCmdBindVertexBuffers(IDCmdBuffer, 0, 1, &_models[0]->mesh->GetVertexBuffer()->buffer, offsets);
+		vkCmdBindIndexBuffer(IDCmdBuffer, _models[0]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
+		vkCmdDrawIndexed(IDCmdBuffer, _models[0]->mesh->GetIndexCount(), 1, 0, 0, 0);
 
 
 	vkCmdEndRenderPass(IDCmdBuffer);
@@ -521,14 +521,14 @@ void VisibilityBuffer::_CreateDescriptorSets()
 	vbid_image_info.imageView = IDFrameBuffer.VID.view;
 	
 	VkDescriptorBufferInfo index_buffer_info = {};
-	index_buffer_info.buffer = _models[0]->model->GetIndexBuffer()->buffer;
+	index_buffer_info.buffer = _models[0]->mesh->GetIndexBuffer()->buffer;
 	index_buffer_info.offset = 0;
-	index_buffer_info.range = _models[0]->model->GetIndexBufferSize();
+	index_buffer_info.range = _models[0]->mesh->GetIndexBufferSize();
 
 	VkDescriptorBufferInfo vertex_position_info = {};
-	vertex_position_info.buffer = _models[0]->model->GetVertexBuffer()->buffer;
+	vertex_position_info.buffer = _models[0]->mesh->GetVertexBuffer()->buffer;
 	vertex_position_info.offset = 0;
-	vertex_position_info.range = _models[0]->model->GetVertexBufferSize();
+	vertex_position_info.range = _models[0]->mesh->GetVertexBufferSize();
 
 	std::vector<VkWriteDescriptorSet> compDescriptorWritesModel;
 	//Binding 0: Vertex Shader UBO
@@ -773,7 +773,7 @@ void VisibilityBuffer::_LoadAssets()
 	houseModel2->GetVertexBuffer()->SetUpDescriptorSet();
 
 	_models.push_back(new vk::wrappers::Model());
-	_models[0]->model = houseModel2;
+	_models[0]->mesh = houseModel2;
 	_models[0]->texture.image = _CreateTextureImage("C:/Users/Liam Maclean/Documents/GitHub/VulkanProject/VulkanProject/VulkanProject/Textures/chalet.jpg");
 	_models[0]->texture.imageView = _CreateTextureImageView(_models[0]->texture.image);
 	_models[0]->texture.sampler = _CreateTextureSampler();
