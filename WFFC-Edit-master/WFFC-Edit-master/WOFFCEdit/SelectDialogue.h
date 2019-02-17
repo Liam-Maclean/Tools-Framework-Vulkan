@@ -39,6 +39,7 @@ public:
 	virtual void PostNcDestroy();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnLbnSelchangeList1();
+	afx_msg void OnTvnSelchangedMfcshelltree1(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 

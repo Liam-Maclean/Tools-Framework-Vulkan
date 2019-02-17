@@ -9,7 +9,7 @@
 #include <vector>
 
 
-class ToolMain : VulkanDeferredApplication
+class ToolMain : public VulkanDeferredApplication
 {
 public: //methods
 	ToolMain(Renderer* renderer, int width, int height, HINSTANCE instance, HWND window)

@@ -10,6 +10,9 @@ BEGIN_MESSAGE_MAP(MFCMain, CWinApp)
 	ON_COMMAND(ID_WIREFRAME, &MFCMain::WireFrameButton)
 	ON_COMMAND(ID_LIGHTING_ENABLED, &MFCMain::LightsButton)
 	ON_COMMAND(ID_NORMAL_VIEW, &MFCMain::NormalsButton)
+	ON_COMMAND(ID_EDIT_MODELPREVIEW, &MFCMain::ModelPreviewButton)
+	ON_COMMAND(ID_EDIT_MODELTRANSFORMS, &MFCMain::transformationButton)
+	ON_COMMAND(ID_NORMAL_VIEW, &MFCMain::NormalsButton)
 
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_TOOL, &CMyFrame::OnUpdatePage)
 END_MESSAGE_MAP()
@@ -36,7 +39,7 @@ BOOL MFCMain::InitInstance()
 //m_toolHandle = Frame->GetSafeHwnd();						//handle of main window
 	m_toolHandle = m_frame->m_DirXView.GetSafeHwnd();				//handle of directX child window
 	m_frame->m_DirXView.GetWindowRect(&WindowRECT);
-
+	m_frame->DrawMenuBar();
 	m_width = WindowRECT.Width();
 	m_height = WindowRECT.Height();
 
@@ -127,6 +130,20 @@ void MFCMain::LightsButton()
 void MFCMain::NormalsButton()
 {
 	m_ToolSystem->onNormalEnabled();
+}
+
+void MFCMain::ModelPreviewButton()
+{
+	//modeless dialogue must be declared in the class.   If we do local it will go out of scope instantly and destroy itself
+	m_ToolModelPreviewDialogue.Create(IDD_MODEL_PREVIEW);	//Start up modeless
+	m_ToolModelPreviewDialogue.ShowWindow(SW_SHOW);	//show modeless
+	m_ToolModelPreviewDialogue.InitialiseRenderer(m_ToolSystem->GetRenderer());
+}
+
+void MFCMain::transformationButton()
+{
+	m_ToolTransformationDialogue.Create(IDD_TRANSFORMATION_DIALOG);
+	m_ToolTransformationDialogue.ShowWindow(SW_SHOW);
 }
 
 

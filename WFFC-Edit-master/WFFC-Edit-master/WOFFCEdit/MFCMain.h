@@ -8,6 +8,8 @@
 #include "resource.h"
 #include "MFCFrame.h"
 #include "SelectDialogue.h"
+#include "ModelPreviewDialogue.h"
+#include "TransformDialogue.h"
 #include "VulkanRenderer/VulkanProject/Renderer.h"
 
 class MFCMain : public CWinApp 
@@ -27,7 +29,8 @@ private:
 
 	CRect WindowRECT;	//Window area rectangle. 
 	SelectDialogue m_ToolSelectDialogue;			//for modeless dialogue, declare it here
-
+	TransformDialogue m_ToolTransformationDialogue;
+	ModelPreviewDialogue m_ToolModelPreviewDialogue;
 
 	int m_width;		
 	int m_height;
@@ -40,6 +43,10 @@ private:
 	afx_msg	void WireFrameButton();
 	afx_msg	void LightsButton();
 	afx_msg	void NormalsButton();
+	afx_msg void ModelPreviewButton();
+	afx_msg void transformationButton();
+
+
 
 	DECLARE_MESSAGE_MAP()	// required macro for message map functionality  One per class
 };

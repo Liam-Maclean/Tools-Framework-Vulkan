@@ -1,13 +1,11 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(941,5): warning MSB8027: Two or more files with the name of Main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Main.cpp, VulkanRenderer\VulkanProject\Main.cpp.
-  MFCMain.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  ToolMain.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-m:\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(69): warning C4101: 'pResultsChunk': unreferenced local variable
+  PreviewWindowRender.cpp
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(378): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(714): warning C4018: '<': signed/unsigned mismatch
 Release\Main.obj : warning LNK4042: object specified more than once; extras ignored
   Generating code
-  4 of 5347 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
+  2 of 5384 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
     4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Win32SimpleSample.vcxproj -> M:\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Release\WoFEdit.exe
+  Win32SimpleSample.vcxproj -> \\StuHome\HomeDrive5$\1503395\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Release\WoFEdit.exe

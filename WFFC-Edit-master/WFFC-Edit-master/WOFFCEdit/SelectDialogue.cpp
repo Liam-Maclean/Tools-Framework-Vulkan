@@ -10,9 +10,7 @@ IMPLEMENT_DYNAMIC(SelectDialogue, CDialogEx)
 
 //Message map.  Just like MFCMAIN.cpp.  This is where we catch button presses etc and point them to a handy dandy method.
 BEGIN_MESSAGE_MAP(SelectDialogue, CDialogEx)
-	ON_COMMAND(IDOK, &SelectDialogue::End)					//ok button
-	ON_BN_CLICKED(IDOK, &SelectDialogue::OnBnClickedOk)		
-	ON_LBN_SELCHANGE(IDC_LIST1, &SelectDialogue::Select)	//listbox
+
 END_MESSAGE_MAP()
 
 
@@ -72,7 +70,7 @@ void SelectDialogue::Select()
 
 BOOL SelectDialogue::OnInitDialog()
 {
-	CDialogEx::OnInitDialog();
+	//CDialogEx::OnInitDialog();
 
 	//uncomment for modal only
 /*	//roll through all the objects in the scene graph and put an entry for each in the listbox

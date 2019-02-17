@@ -92,8 +92,9 @@ public:
 
 	bool _frameBufferResized = false;
 	PipelineType pipelineType = PipelineType::standard;
+	Renderer* GetRenderer() { return _renderer; }
+	//==Renderer==
 	
-
 protected:
 
 	void PrepareScene();
@@ -165,7 +166,6 @@ protected:
 	bool _HasStencilComponent(VkFormat format);
 
 
-	//==Renderer==
 	Renderer * _renderer;
 
 	//Methods

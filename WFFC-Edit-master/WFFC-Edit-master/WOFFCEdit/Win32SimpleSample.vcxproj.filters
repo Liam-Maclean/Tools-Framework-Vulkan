@@ -83,10 +83,19 @@
     <ClCompile Include="VulkanRenderer\VulkanProject\VisibilityBuffer.cpp">
       <Filter>Renderer\Renderer Types</Filter>
     </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.cpp">
+    <ClCompile Include="VulkanRenderer\VulkanProject\Window.cpp">
       <Filter>Renderer\Renderer Types</Filter>
     </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Window.cpp">
+    <ClCompile Include="ModelPreviewDialogue.cpp">
+      <Filter>MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformDialogue.cpp">
+      <Filter>MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\PreviewWindowRender.cpp">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.cpp">
       <Filter>Renderer\Renderer Types</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,10 +156,19 @@
     <ClInclude Include="VulkanRenderer\VulkanProject\VisibilityBuffer.h">
       <Filter>Renderer\Renderer Types</Filter>
     </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.h">
+    <ClInclude Include="VulkanRenderer\VulkanProject\Window.h">
       <Filter>Renderer\Renderer Types</Filter>
     </ClInclude>
-    <ClInclude Include="VulkanRenderer\VulkanProject\Window.h">
+    <ClInclude Include="ModelPreviewDialogue.h">
+      <Filter>MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformDialogue.h">
+      <Filter>MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\PreviewWindowRender.h">
+      <Filter>Renderer\Renderer Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanRenderer\VulkanProject\VulkanDeferredApplication.h">
       <Filter>Renderer\Renderer Types</Filter>
     </ClInclude>
   </ItemGroup>
