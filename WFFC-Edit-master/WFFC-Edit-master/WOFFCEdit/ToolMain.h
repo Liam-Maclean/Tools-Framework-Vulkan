@@ -31,9 +31,9 @@ public: //methods
 	//onAction - These are the interface to MFC
 	int		getCurrentSelectionID();										//returns the selection number of currently selected object so that It can be displayed.
 	void	onActionInitialise(HWND handle, int width, int height);			//Passes through handle and hieght and width and initialises DirectX renderer and SQL LITE
-	void	onWireframeMode();
-	void	onLightEnabled();
-	void	onNormalEnabled();
+	void	onActionWireframeMode();
+	void	onActionLightEnabled();
+	void	onActionNormalEnabled();
 
 	void	onActionFocusCamera();
 	void	onActionLoad();													//load the current chunk
@@ -46,7 +46,7 @@ public: //methods
 public:	//variables
 	std::vector<SceneObject>    m_sceneGraph;	//our scenegraph storing all the objects in the current chunk
 	int m_selectedObject;						//ID of current Selection
-
+	std::vector<vk::wrappers::Model*> models;
 private:	//methods
 	void	onContentAdded();
 

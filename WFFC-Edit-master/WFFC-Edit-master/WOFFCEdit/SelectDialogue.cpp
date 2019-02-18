@@ -10,14 +10,14 @@ IMPLEMENT_DYNAMIC(SelectDialogue, CDialogEx)
 
 //Message map.  Just like MFCMAIN.cpp.  This is where we catch button presses etc and point them to a handy dandy method.
 BEGIN_MESSAGE_MAP(SelectDialogue, CDialogEx)
-
+	ON_COMMAND(IDOK, &SelectDialogue::End)					//ok button
 END_MESSAGE_MAP()
 
 
-SelectDialogue::SelectDialogue(CWnd* pParent, std::vector<SceneObject>* SceneGraph)		//constructor used in modal
+SelectDialogue::SelectDialogue(CWnd* pParent, std::vector<vk::wrappers::Model*> SceneGraph)		//constructor used in modal
 	: CDialogEx(IDD_DIALOG1, pParent)
 {
-	m_sceneGraph = SceneGraph;
+	sceneModels = SceneGraph;
 }
 
 SelectDialogue::SelectDialogue(CWnd * pParent)			//constructor used in modeless
@@ -30,17 +30,20 @@ SelectDialogue::~SelectDialogue()
 }
 
 ///pass through pointers to the data in the tool we want to manipulate
-void SelectDialogue::SetObjectData(std::vector<SceneObject>* SceneGraph, int * selection)
+void SelectDialogue::SetObjectData(std::vector<vk::wrappers::Model*> SceneGraph, int * selection)
 {
-	m_sceneGraph = SceneGraph;
+	sceneModels = SceneGraph;
 	m_currentSelection = selection;
-
+	
 	//roll through all the objects in the scene graph and put an entry for each in the listbox
-	int numSceneObjects = m_sceneGraph->size();
-	for (int i = 0; i < numSceneObjects; i++)
+	int numSceneObjects = sceneModels.size();
+	for (size_t i = 0; i < numSceneObjects; i++)
 	{
 		//easily possible to make the data string presented more complex. showing other columns.
-		std::wstring listBoxEntry = std::to_wstring(m_sceneGraph->at(i).ID);
+		std::wstring listBoxEntry;
+		//listBoxEntry.assign()
+		//std::to_wstring(&sceneModels->at(i)->name)
+		listBoxEntry.assign(sceneModels.at(i)->name.begin(), sceneModels.at(i)->name.end());
 		m_listBox.AddString(listBoxEntry.c_str());
 	}
 }
@@ -63,24 +66,24 @@ void SelectDialogue::Select()
 	CString currentSelectionValue;
 	
 	m_listBox.GetText(index, currentSelectionValue);
-
+	
 	*m_currentSelection = _ttoi(currentSelectionValue);
 
 }
 
 BOOL SelectDialogue::OnInitDialog()
 {
-	//CDialogEx::OnInitDialog();
+	CDialogEx::OnInitDialog();
 
 	//uncomment for modal only
-/*	//roll through all the objects in the scene graph and put an entry for each in the listbox
-	int numSceneObjects = m_sceneGraph->size();
-	for (size_t i = 0; i < numSceneObjects; i++)
-	{
-		//easily possible to make the data string presented more complex. showing other columns.
-		std::wstring listBoxEntry = std::to_wstring(m_sceneGraph->at(i).ID);
-		m_listBox.AddString(listBoxEntry.c_str());
-	}*/
+	//int numSceneObjects = sceneModels.size();
+	//for (size_t i = 0; i < numSceneObjects; i++)
+	//{
+	//	//easily possible to make the data string presented more complex. showing other columns.
+	//	std::wstring listBoxEntry; 
+	//	listBoxEntry.assign(sceneModels.at(i)->name.begin(), sceneModels.at(i)->name.end());
+	//	m_listBox.AddString(listBoxEntry.c_str());
+	//}
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
@@ -88,6 +91,7 @@ BOOL SelectDialogue::OnInitDialog()
 
 void SelectDialogue::PostNcDestroy()
 {
+
 }
 
 

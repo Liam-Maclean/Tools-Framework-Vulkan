@@ -8,6 +8,7 @@ BEGIN_MESSAGE_MAP(TransformDialogue, CDialogEx)
 
 END_MESSAGE_MAP()
 
+
 TransformDialogue::TransformDialogue(CWnd * pParent)
 	:CDialogEx(IDD_TRANSFORMATION_DIALOG, pParent)
 {
@@ -17,6 +18,7 @@ TransformDialogue::TransformDialogue(CWnd * pParent)
 TransformDialogue::~TransformDialogue()
 {
 }
+
 
 void TransformDialogue::End()
 {

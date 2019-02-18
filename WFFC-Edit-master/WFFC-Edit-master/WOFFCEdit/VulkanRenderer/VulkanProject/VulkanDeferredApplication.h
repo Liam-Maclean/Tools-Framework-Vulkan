@@ -56,7 +56,7 @@ public:
 	}descriptorSets;
 
 
-
+	void UpdateModelList(std::vector<vk::wrappers::Model*> models);
 	void CreateCamera();
 	void InitialiseVulkanApplication();
 	void Update(CRect screenRect);

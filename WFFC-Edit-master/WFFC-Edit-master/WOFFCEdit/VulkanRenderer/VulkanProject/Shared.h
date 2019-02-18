@@ -5,7 +5,9 @@
 #include <vulkan/vulkan.h>
 #include <vector>
 #include <fstream>
-#include "glm/glm.hpp"
+#include <glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/glm/common.hpp>
 
 class BaseMesh;
 
@@ -126,19 +128,23 @@ namespace vk
 			vk::wrappers::Texture2D texture;
 
 			//String details (File paths and name)
-			const char* name;
-			const char* model_path;
-			const char* texture_path;
+			std::string name;
+			std::string model_path;
+			std::string texture_path;
 
 			//transformation details (matrices, model transforms)
-			glm::mat4 transfomation_matrix;
-			glm::mat4 scale_matrix;
-			glm::mat4 rotation_matrix;
 			glm::mat4 model_matrix;
 
 			glm::vec4 position;
 			glm::vec4 scale;
 			glm::vec4 rotation;
+
+			void ComputeMatrices()
+			{
+				model_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, position.z));
+				model_matrix = glm::scale(model_matrix, glm::vec3(scale.x, scale.y, scale.z));
+			}
+
 		};
 
 	}

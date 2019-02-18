@@ -62,6 +62,21 @@ void VulkanDeferredApplication::Update(CRect screenRect)
 	//vkDeviceWaitIdle(_renderer->GetVulkanDevice());
 }
 
+void VulkanDeferredApplication::UpdateModelList(std::vector<vk::wrappers::Model*> models)
+{
+	for (int i = 0; i < models.size(); i++)
+	{
+		_models.push_back(new vk::wrappers::Model());
+		_models[i]->position = models[i]->position;
+		_models[i]->scale = models[i]->scale;
+		_models[i]->rotation = models[i]->rotation;
+		_models[i]->model_path = models[i]->model_path;
+		_models[i]->texture_path = models[i]->texture_path;
+		_models[i]->model_matrix = models[i]->model_matrix;
+	}
+	//_models = models;
+}
+
 //Creates the camera in which the view and projection matrices are held
 void VulkanDeferredApplication::CreateCamera()
 {
@@ -73,6 +88,8 @@ void VulkanDeferredApplication::CreateCamera()
 //Draw frame
 void VulkanDeferredApplication::DrawFrame()
 {
+	vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
+	vkQueueWaitIdle(_renderer->GetVulkanGraphicsQueue());
 	uint32_t imageIndex;
 	VkResult result = vkAcquireNextImageKHR(_renderer->GetVulkanDevice(), _swapChain, std::numeric_limits<uint64_t>::max(),presentCompleteSemaphore, VK_NULL_HANDLE, &imageIndex);
 	//
@@ -91,6 +108,8 @@ void VulkanDeferredApplication::DrawFrame()
 
 	VkSubmitInfo submitInfo = {};
 	submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+	submitInfo.signalSemaphoreCount = 1;
+	submitInfo.waitSemaphoreCount = 1;
 	// Wait for swap chain presentation to finish
 	submitInfo.pWaitSemaphores = &presentCompleteSemaphore;
 	// Signal ready with offscreen semaphore
@@ -136,7 +155,7 @@ void VulkanDeferredApplication::DrawFrame()
 
 	currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 
-	vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
+	//vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
 }
 
 void VulkanDeferredApplication::_CreateOutlinePipeline()
@@ -535,23 +554,31 @@ VkPipelineShaderStageCreateInfo VulkanDeferredApplication::loadShader(std::strin
 //Generates the quads to display the final result of the combined full screen buffers
 void VulkanDeferredApplication::_CreateGeometry()
 {
+
+	for (int i = 0; i < _models.size(); i++)
+	{
+
+		_models[i]->texture.image = _CreateTextureImage(_models[i]->texture_path.c_str());
+		_models[i]->texture.imageView = _CreateTextureImageView(_models[i]->texture.image);
+		_models[i]->texture.sampler = _CreateTextureSampler();
+		_models[i]->mesh = new ImportedModel(_models[i]->model_path.c_str());
+		_CreateShaderBuffer(_renderer->GetVulkanDevice(), _models[i]->mesh->GetVertexBufferSize(), &_models[i]->mesh->GetVertexBuffer()->buffer, &_models[i]->mesh->GetVertexBuffer()->memory, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, _models[i]->mesh->GetVertexData());
+		_CreateShaderBuffer(_renderer->GetVulkanDevice(), _models[i]->mesh->GetIndexBufferSize(), &_models[i]->mesh->GetIndexBuffer()->buffer, &_models[i]->mesh->GetIndexBuffer()->memory, VK_BUFFER_USAGE_INDEX_BUFFER_BIT, _models[i]->mesh->GetIndexData());
+		_models[i]->mesh->GetIndexBuffer()->SetUpDescriptorSet();
+		_models[i]->mesh->GetVertexBuffer()->SetUpDescriptorSet();
+
+
+	}
+	//Creates screen quad for deferred rendering
 	screenTarget = new ScreenTarget();
 	_CreateShaderBuffer(_renderer->GetVulkanDevice(), screenTarget->GetVertexBufferSize(), &screenTarget->GetVertexBuffer()->buffer, &screenTarget->GetVertexBuffer()->memory, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, screenTarget->GetVertexData());
 	_CreateShaderBuffer(_renderer->GetVulkanDevice(), screenTarget->GetIndexBufferSize(), &screenTarget->GetIndexBuffer()->buffer, &screenTarget->GetIndexBuffer()->memory, VK_BUFFER_USAGE_INDEX_BUFFER_BIT, screenTarget->GetIndexData());
 	screenTarget->GetIndexBuffer()->SetUpDescriptorSet();
 	screenTarget->GetVertexBuffer()->SetUpDescriptorSet();
 
-	planeMesh = new PlaneMesh();
-	_CreateShaderBuffer(_renderer->GetVulkanDevice(), planeMesh->GetVertexBufferSize(), &planeMesh->GetVertexBuffer()->buffer, &planeMesh->GetVertexBuffer()->memory, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, planeMesh->GetVertexData());
-	_CreateShaderBuffer(_renderer->GetVulkanDevice(), planeMesh->GetIndexBufferSize(), &planeMesh->GetIndexBuffer()->buffer, &planeMesh->GetIndexBuffer()->memory, VK_BUFFER_USAGE_INDEX_BUFFER_BIT, planeMesh->GetIndexData());
-	planeMesh->GetIndexBuffer()->SetUpDescriptorSet();
-	planeMesh->GetVertexBuffer()->SetUpDescriptorSet();
+	testLightViewMatrix = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 1.0f, 7.5f);
+	_CreateShaderBuffer(_renderer->GetVulkanDevice(), sizeof(glm::mat4), &lightViewMatrixBuffer.buffer, &lightViewMatrixBuffer.memory, VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, &testLightViewMatrix);
 
-	houseModel = new ImportedModel("VulkanRenderer/VulkanProject/Textures/PenguinBaseMesh.obj");
-	_CreateShaderBuffer(_renderer->GetVulkanDevice(), houseModel->GetVertexBufferSize(), &houseModel->GetVertexBuffer()->buffer, &houseModel->GetVertexBuffer()->memory, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, houseModel->GetVertexData());
-	_CreateShaderBuffer(_renderer->GetVulkanDevice(), houseModel->GetIndexBufferSize(), &houseModel->GetIndexBuffer()->buffer, &houseModel->GetIndexBuffer()->memory, VK_BUFFER_USAGE_INDEX_BUFFER_BIT, houseModel->GetIndexData());
-	houseModel->GetIndexBuffer()->SetUpDescriptorSet();
-	houseModel->GetVertexBuffer()->SetUpDescriptorSet();
 
 	//*Lighting*
 	_spotLights.push_back(new vk::wrappers::SpotLight());
@@ -559,35 +586,25 @@ void VulkanDeferredApplication::_CreateGeometry()
 	_directionalLights.push_back(new vk::wrappers::DirectionalLight());
 	_directionalLights.push_back(new vk::wrappers::DirectionalLight());
 
-	_directionalLights[0]->diffuse = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); 
+	_directionalLights[0]->diffuse = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	_directionalLights[0]->direction = glm::vec4(1.0f, 2.0f, 0.0f, 1.0f);
 	_directionalLights[0]->specular = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-
-	testLightViewMatrix = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 1.0f, 7.5f);
-
-	_CreateShaderBuffer(_renderer->GetVulkanDevice(), sizeof(glm::mat4), &lightViewMatrixBuffer.buffer, &lightViewMatrixBuffer.memory, VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, &testLightViewMatrix);
-
-	//_directionalLights[0]->lightViewMatrix = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 1.0f, 7.5f);
-
-	//_directionalLights[1]->diffuse = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	//_directionalLights[1]->direction = glm::vec4(-1.0f, 0.0f, 0.0f, 1.0f);
-	//_directionalLights[1]->specular = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	//Create lights storage buffers to pass to the fragment shader
 	_CreateShaderBuffer(_renderer->GetVulkanDevice(), _spotLights.size() * sizeof(vk::wrappers::SpotLight), &_spotLightBuffer, &_spotLightBufferMemory, VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, *_spotLights.data());
 	_CreateShaderBuffer(_renderer->GetVulkanDevice(), _pointLights.size() * sizeof(vk::wrappers::PointLight), &_pointLightBuffer, &_pointLightBufferMemory, VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, *_pointLights.data());
 	_CreateShaderBuffer(_renderer->GetVulkanDevice(), _directionalLights.size() * sizeof(vk::wrappers::DirectionalLight), &_directionalLightBuffer, &_directionalLightBufferMemory, VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, *_directionalLights.data());
 
-	_models.push_back(new vk::wrappers::Model());
-	_models.push_back(new vk::wrappers::Model());
-	_models[0]->mesh = houseModel;
-	_models[0]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/Penguin Diffuse Color.png");
-	_models[0]->texture.imageView = _CreateTextureImageView(_models[0]->texture.image);
-	_models[0]->texture.sampler = _CreateTextureSampler();
-	_models[1]->mesh = planeMesh;
-	_models[1]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/BrickTexture.jpg");
-	_models[1]->texture.imageView = _CreateTextureImageView(_models[1]->texture.image);
-	_models[1]->texture.sampler = _CreateTextureSampler();
+	//_models.push_back(new vk::wrappers::Model());
+	//_models.push_back(new vk::wrappers::Model());
+	//_models[0]->mesh = houseModel;
+	//_models[0]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/Penguin Diffuse Color.png");
+	//_models[0]->texture.imageView = _CreateTextureImageView(_models[0]->texture.image);
+	//_models[0]->texture.sampler = _CreateTextureSampler();
+	//_models[1]->mesh = planeMesh;
+	//_models[1]->texture.image = _CreateTextureImage("VulkanRenderer/VulkanProject/Textures/BrickTexture.jpg");
+	//_models[1]->texture.imageView = _CreateTextureImageView(_models[1]->texture.image);
+	//_models[1]->texture.sampler = _CreateTextureSampler();
 }
 
 //Creates a render pass
@@ -630,7 +647,7 @@ void VulkanDeferredApplication::SetUpUniformBuffers()
 		dynamicAlignment = (dynamicAlignment + minUboAlignment - 1) & ~(minUboAlignment - 1);
 	}
 	//checks buffer size by how many models there are times alignment
-	size_t bufferSize = 2 * dynamicAlignment;
+	size_t bufferSize = _models.size() * dynamicAlignment;
 	uboDataDynamic.model = (glm::mat4*)_aligned_malloc(bufferSize, dynamicAlignment);
 	assert(uboDataDynamic.model);
 
@@ -648,19 +665,19 @@ void VulkanDeferredApplication::SetUpUniformBuffers()
 		glm::mat4* modelMat = (glm::mat4*)(((uint64_t)uboDataDynamic.model + (i * dynamicAlignment)));
 		VkSampler* modelSampler = (VkSampler*)(((uint64_t)uboTextureDataDynamic.sampler + (i * dynamicTextureAlignment)));
 
-
-		if (i == 0)
-		{
-			*modelMat = glm::mat4(1.0f);
-			*modelMat = glm::translate(*modelMat, glm::vec3(0.0f, 0.0f, 0.0f));
-			*modelMat = glm::scale(*modelMat, glm::vec3(2.0f, 2.0f, 2.0f));
-		}
-		else if (i == 1)
-		{ 
-			*modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-			*modelMat = glm::rotate(*modelMat, glm::radians(-180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-			*modelMat = glm::scale(*modelMat, glm::vec3(4.0f, 4.0f, 4.0f));
-		}
+		*modelMat = _models[i]->model_matrix;
+		//if (i == 0)
+		//{
+		//	*modelMat = glm::mat4(1.0f);
+		//	*modelMat = glm::translate(*modelMat, glm::vec3(0.0f, 0.0f, 0.0f));
+		//	*modelMat = glm::scale(*modelMat, glm::vec3(2.0f, 2.0f, 2.0f));
+		//}
+		//else if (i == 1)
+		//{ 
+		//	*modelMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//	*modelMat = glm::rotate(*modelMat, glm::radians(-180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		//	*modelMat = glm::scale(*modelMat, glm::vec3(4.0f, 4.0f, 4.0f));
+		//}
 	}
 	
 	//Creates dynamic uniform buffer
@@ -1472,13 +1489,6 @@ void VulkanDeferredApplication::CreateDeferredCommandBuffers()
 			//Dynamic offset to get the correct model matrix from the dynamic buffer
 			uint32_t dynamicOffset = i * static_cast<uint32_t>(dynamicAlignment);
 			//binding descriptor sets and drawing model on the screen
-
-			//vkCmdBindPipeline(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipelines[PipelineType::offscreen]);
-			//vkCmdBindDescriptorSets(offScreenCmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, _pipelineLayout[PipelineType::offscreen], 0, 1, &_models[i]->descriptorSet, 1, &dynamicOffset);
-			//vkCmdBindVertexBuffers(offScreenCmdBuffer, 0, 1, &_models[i]->mesh->GetVertexBuffer()->buffer, offsets);
-			//vkCmdBindIndexBuffer(offScreenCmdBuffer, _models[i]->mesh->GetIndexBuffer()->buffer, 0, VK_INDEX_TYPE_UINT32);
-			//vkCmdDrawIndexed(offScreenCmdBuffer, _models[i]->mesh->GetIndexCount(), 1, 0, 0, 0);
-
 
 			if (wireframeModeToggle == true)
 			{

@@ -38,17 +38,17 @@ void ToolMain::onActionInitialise(HWND handle, int width, int height)
 	onActionLoad();
 }
 
-void ToolMain::onWireframeMode()
+void ToolMain::onActionWireframeMode()
 {
 	ToggleWireframeMode();
 }
 
-void ToolMain::onLightEnabled()
+void ToolMain::onActionLightEnabled()
 {
 	ToggleLighting();
 }
 
-void ToolMain::onNormalEnabled()
+void ToolMain::onActionNormalEnabled()
 {
 	ToggleNormalMode();
 }
@@ -77,17 +77,18 @@ void ToolMain::onActionLoad()
 	//loop for each row in results until there are no more rows.  ie for every row in the results. We create and object
 	while (sqlite3_step(pResults) == SQLITE_ROW)
 	{	
-		//vk::wrappers::Model newSceneModel;
-		//
-		////Load model information for vulkan model
-		//newSceneModel.position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
-		//newSceneModel.rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
-		//newSceneModel.scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
-		//newSceneModel.model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
-		//newSceneModel.texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
-		//
-		////After everything has loaded, compute the matrices
-		////newSceneModel.ComputeMatrices();
+		models.push_back(new vk::wrappers::Model());
+		//Load model information for vulkan model
+		models.back()->position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
+		models.back()->rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
+		models.back()->scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
+		models.back()->model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
+		models.back()->texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
+		models.back()->name = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 44));
+
+		models.back()->ComputeMatrices();
+		//After everything has loaded, compute the matrices
+		
 		//
 		////Give the model to the vulkan renderer
 		//_models.push_back(&newSceneModel);
@@ -142,83 +143,85 @@ void ToolMain::onActionLoad()
 	
 	}
 
+
+	UpdateModelList(models);
 	//Initialise the vulkan graphics framework with models loaded from SQLITE database
 	InitialiseVulkanApplication();
 }
 
 void ToolMain::onActionSave()
 {
-	//SQL
-	int rc;
-	char *sqlCommand;
-	char *ErrMSG = 0;
-	sqlite3_stmt *pResults;								//results of the query
-	
-
-	//OBJECTS IN THE WORLD Delete them all
-	//prepare SQL Text
-	sqlCommand = "DELETE FROM Objects";	 //will delete the whole object table.   Slightly risky but hey.
-	rc = sqlite3_prepare_v2(m_databaseConnection, sqlCommand, -1, &pResults, 0);
-	sqlite3_step(pResults);
-
-	//Populate with our new objects
-	std::wstring sqlCommand2;
-	int numObjects = m_sceneGraph.size();	//Loop thru the scengraph.
-
-	for (int i = 0; i < numObjects; i++)
-	{
-		std::stringstream command;
-		command << "INSERT INTO Objects " 
-			<<"VALUES(" << m_sceneGraph.at(i).ID << ","
-			<< m_sceneGraph.at(i).chunk_ID  << ","
-			<< "'" << m_sceneGraph.at(i).model_path <<"'" << ","
-			<< "'" << m_sceneGraph.at(i).tex_diffuse_path << "'" << ","
-			<< m_sceneGraph.at(i).posX << ","
-			<< m_sceneGraph.at(i).posY << ","
-			<< m_sceneGraph.at(i).posZ << ","
-			<< m_sceneGraph.at(i).rotX << ","
-			<< m_sceneGraph.at(i).rotY << ","
-			<< m_sceneGraph.at(i).rotZ << ","
-			<< m_sceneGraph.at(i).scaX << ","
-			<< m_sceneGraph.at(i).scaY << ","
-			<< m_sceneGraph.at(i).scaZ << ","
-			<< m_sceneGraph.at(i).render << ","
-			<< m_sceneGraph.at(i).collision << ","
-			<< "'" << m_sceneGraph.at(i).collision_mesh << "'" << ","
-			<< m_sceneGraph.at(i).collectable << ","
-			<< m_sceneGraph.at(i).destructable << ","
-			<< m_sceneGraph.at(i).health_amount << ","
-			<< m_sceneGraph.at(i).editor_render << ","
-			<< m_sceneGraph.at(i).editor_texture_vis << ","
-			<< m_sceneGraph.at(i).editor_normals_vis << ","
-			<< m_sceneGraph.at(i).editor_collision_vis << ","
-			<< m_sceneGraph.at(i).editor_pivot_vis << ","
-			<< m_sceneGraph.at(i).pivotX << ","
-			<< m_sceneGraph.at(i).pivotY << ","
-			<< m_sceneGraph.at(i).pivotZ << ","
-			<< m_sceneGraph.at(i).snapToGround << ","
-			<< m_sceneGraph.at(i).AINode << ","
-			<< "'" << m_sceneGraph.at(i).audio_path << "'" << ","
-			<< m_sceneGraph.at(i).volume << ","
-			<< m_sceneGraph.at(i).pitch << ","
-			<< m_sceneGraph.at(i).pan << ","
-			<< m_sceneGraph.at(i).one_shot << ","
-			<< m_sceneGraph.at(i).play_on_init << ","
-			<< m_sceneGraph.at(i).play_in_editor << ","
-			<< m_sceneGraph.at(i).min_dist << ","
-			<< m_sceneGraph.at(i).max_dist << ","
-			<< m_sceneGraph.at(i).camera << ","
-			<< m_sceneGraph.at(i).path_node << ","
-			<< m_sceneGraph.at(i).path_node_start << ","
-			<< m_sceneGraph.at(i).path_node_end << ","
-			<< m_sceneGraph.at(i).parent_id << ","
-			<< m_sceneGraph.at(i).editor_wireframe << ","
-			<< "'" << m_sceneGraph.at(i).name << "'"
-			<< ")";
-		std::string sqlCommand2 = command.str();
-		rc = sqlite3_prepare_v2(m_databaseConnection, sqlCommand2.c_str(), -1, &pResults, 0);
-		sqlite3_step(pResults);	
-	}
+	////SQL
+	//int rc;
+	//char *sqlCommand;
+	//char *ErrMSG = 0;
+	//sqlite3_stmt *pResults;								//results of the query
+	//
+	//
+	////OBJECTS IN THE WORLD Delete them all
+	////prepare SQL Text
+	//sqlCommand = "DELETE FROM Objects";	 //will delete the whole object table.   Slightly risky but hey.
+	//rc = sqlite3_prepare_v2(m_databaseConnection, sqlCommand, -1, &pResults, 0);
+	//sqlite3_step(pResults);
+	//
+	////Populate with our new objects
+	//std::wstring sqlCommand2;
+	//int numObjects = m_sceneGraph.size();	//Loop thru the scengraph.
+	//
+	//for (int i = 0; i < numObjects; i++)
+	//{
+	//	std::stringstream command;
+	//	command << "INSERT INTO Objects " 
+	//		<<"VALUES(" << m_sceneGraph.at(i).ID << ","
+	//		<< m_sceneGraph.at(i).chunk_ID  << ","
+	//		<< "'" << m_sceneGraph.at(i).model_path <<"'" << ","
+	//		<< "'" << m_sceneGraph.at(i).tex_diffuse_path << "'" << ","
+	//		<< m_sceneGraph.at(i).posX << ","
+	//		<< m_sceneGraph.at(i).posY << ","
+	//		<< m_sceneGraph.at(i).posZ << ","
+	//		<< m_sceneGraph.at(i).rotX << ","
+	//		<< m_sceneGraph.at(i).rotY << ","
+	//		<< m_sceneGraph.at(i).rotZ << ","
+	//		<< m_sceneGraph.at(i).scaX << ","
+	//		<< m_sceneGraph.at(i).scaY << ","
+	//		<< m_sceneGraph.at(i).scaZ << ","
+	//		<< m_sceneGraph.at(i).render << ","
+	//		<< m_sceneGraph.at(i).collision << ","
+	//		<< "'" << m_sceneGraph.at(i).collision_mesh << "'" << ","
+	//		<< m_sceneGraph.at(i).collectable << ","
+	//		<< m_sceneGraph.at(i).destructable << ","
+	//		<< m_sceneGraph.at(i).health_amount << ","
+	//		<< m_sceneGraph.at(i).editor_render << ","
+	//		<< m_sceneGraph.at(i).editor_texture_vis << ","
+	//		<< m_sceneGraph.at(i).editor_normals_vis << ","
+	//		<< m_sceneGraph.at(i).editor_collision_vis << ","
+	//		<< m_sceneGraph.at(i).editor_pivot_vis << ","
+	//		<< m_sceneGraph.at(i).pivotX << ","
+	//		<< m_sceneGraph.at(i).pivotY << ","
+	//		<< m_sceneGraph.at(i).pivotZ << ","
+	//		<< m_sceneGraph.at(i).snapToGround << ","
+	//		<< m_sceneGraph.at(i).AINode << ","
+	//		<< "'" << m_sceneGraph.at(i).audio_path << "'" << ","
+	//		<< m_sceneGraph.at(i).volume << ","
+	//		<< m_sceneGraph.at(i).pitch << ","
+	//		<< m_sceneGraph.at(i).pan << ","
+	//		<< m_sceneGraph.at(i).one_shot << ","
+	//		<< m_sceneGraph.at(i).play_on_init << ","
+	//		<< m_sceneGraph.at(i).play_in_editor << ","
+	//		<< m_sceneGraph.at(i).min_dist << ","
+	//		<< m_sceneGraph.at(i).max_dist << ","
+	//		<< m_sceneGraph.at(i).camera << ","
+	//		<< m_sceneGraph.at(i).path_node << ","
+	//		<< m_sceneGraph.at(i).path_node_start << ","
+	//		<< m_sceneGraph.at(i).path_node_end << ","
+	//		<< m_sceneGraph.at(i).parent_id << ","
+	//		<< m_sceneGraph.at(i).editor_wireframe << ","
+	//		<< "'" << m_sceneGraph.at(i).name << "'"
+	//		<< ")";
+	//	std::string sqlCommand2 = command.str();
+	//	rc = sqlite3_prepare_v2(m_databaseConnection, sqlCommand2.c_str(), -1, &pResults, 0);
+	//	sqlite3_step(pResults);	
+	//}
 	MessageBox(NULL, L"Objects Saved", L"Notification", MB_OK);
 }
 

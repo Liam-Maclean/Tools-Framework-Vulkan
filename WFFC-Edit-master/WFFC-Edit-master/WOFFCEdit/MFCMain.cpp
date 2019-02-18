@@ -103,13 +103,13 @@ void MFCMain::MenuFileSaveTerrain()
 
 void MFCMain::MenuEditSelect()
 {
-	//SelectDialogue m_ToolSelectDialogue(NULL, &m_ToolSystem.m_sceneGraph);		//create our dialoguebox //modal constructor
+	//SelectDialogue m_ToolSelectDialogue(NULL, m_ToolSystem->models);		//create our dialoguebox //modal constructor
 	//m_ToolSelectDialogue.DoModal();	// start it up modal
 
 	//modeless dialogue must be declared in the class.   If we do local it will go out of scope instantly and destroy itself
 	m_ToolSelectDialogue.Create(IDD_DIALOG1);	//Start up modeless
 	m_ToolSelectDialogue.ShowWindow(SW_SHOW);	//show modeless
-	m_ToolSelectDialogue.SetObjectData(&m_ToolSystem->m_sceneGraph, &m_ToolSystem->m_selectedObject);
+	m_ToolSelectDialogue.SetObjectData(m_ToolSystem->models, &m_ToolSystem->m_selectedObject);
 }
 
 void MFCMain::ToolBarButton1()
@@ -119,17 +119,17 @@ void MFCMain::ToolBarButton1()
 
 void MFCMain::WireFrameButton()
 {
-	m_ToolSystem->onWireframeMode();
+	m_ToolSystem->onActionWireframeMode();
 }
 
 void MFCMain::LightsButton()
 {
-	m_ToolSystem->onLightEnabled();
+	m_ToolSystem->onActionLightEnabled();
 }
 
 void MFCMain::NormalsButton()
 {
-	m_ToolSystem->onNormalEnabled();
+	m_ToolSystem->onActionNormalEnabled();
 }
 
 void MFCMain::ModelPreviewButton()
