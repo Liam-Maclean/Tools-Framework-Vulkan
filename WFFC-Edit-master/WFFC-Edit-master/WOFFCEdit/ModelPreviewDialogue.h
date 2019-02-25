@@ -3,7 +3,7 @@
 #include "afxdialogex.h"
 #include "resource.h"
 #include "afxwin.h"
-#include "SceneObject.h"
+//#include "SceneObject.h"
 #include "VulkanRenderer/VulkanProject/PreviewWindowRender.h"
 #include <vector>
 class ModelPreviewDialogue : public CDialogEx

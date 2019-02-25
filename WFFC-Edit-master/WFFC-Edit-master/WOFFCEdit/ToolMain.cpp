@@ -12,9 +12,14 @@ ToolMain::~ToolMain()
 
 int ToolMain::getCurrentSelectionID()
 {
-
-	return m_selectedObject;
+	return m_selectedObjectID;
 }
+
+std::string ToolMain::getCurrentSelectionName()
+{
+	return m_selectedObjectName;
+}
+
 
 void ToolMain::onActionInitialise(HWND handle, int width, int height)
 {
@@ -56,10 +61,10 @@ void ToolMain::onActionNormalEnabled()
 void ToolMain::onActionLoad()
 {
 	//load current chunk and objects into lists
-	if (!m_sceneGraph.empty())		//is the vector empty
-	{
-		m_sceneGraph.clear();		//if not, empty it
-	}
+	//if (!m_sceneGraph.empty())		//is the vector empty
+	//{
+	//	m_sceneGraph.clear();		//if not, empty it
+	//}
 
 	//SQL
 	int rc;
@@ -232,6 +237,12 @@ void ToolMain::onActionSaveTerrain()
 
 void ToolMain::Tick(MSG *msg)
 {
+	if (m_toolInputCommands.mouse_lb_down)
+	{
+		m_selectedObjectID = MousePicking(m_toolInputCommands);
+		m_toolInputCommands.mouse_lb_down = false;
+	}
+
 	//Renderer Update Call
 	VulkanDeferredApplication::Update(WindowRECT);
 }
@@ -251,10 +262,15 @@ void ToolMain::UpdateInput(MSG * msg)
 		break;
 
 	case WM_MOUSEMOVE:
+		m_toolInputCommands.mouse_x = GET_X_LPARAM(msg->lParam);
+		m_toolInputCommands.mouse_y = GET_Y_LPARAM(msg->lParam);
 		break;
 
 	case WM_LBUTTONDOWN:	//mouse button down,  you will probably need to check when its up too
 		//set some flag for the mouse button in inputcommands
+		m_toolInputCommands.mouse_lb_down = true;
+
+
 		break;
 	}
 	//here we update all the actual app functionality that we want.  This information will either be used int toolmain, or sent down to the renderer (Camera movement etc
@@ -295,3 +311,4 @@ void ToolMain::UpdateInput(MSG * msg)
 
 	//WASD
 }
+

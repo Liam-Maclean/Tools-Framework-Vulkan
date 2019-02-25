@@ -1,143 +1,102 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Win32SimpleSample.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(941,5): warning MSB8027: Two or more files with the name of Main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Main.cpp, VulkanRenderer\VulkanProject\Main.cpp.
   Main.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C3646: 'm_chunk': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C3646: 'm_d3dRenderer': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
   MFCFrame.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C3646: 'm_chunk': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C3646: 'm_d3dRenderer': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+  MFCRenderFrame.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  ModelPreviewDialogue.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+  pch.cpp
   MFCMain.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C3646: 'm_chunk': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C3646: 'm_d3dRenderer': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+  SelectDialogue.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\selectdialogue.cpp(41): warning C4018: '<': signed/unsigned mismatch
   ToolMain.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C3646: 'm_chunk': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C3646: 'm_d3dRenderer': unknown override specifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(42): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(42): error C2228: left of '.GetDefaultSize' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(42): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(43): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(43): error C2228: left of '.Initialize' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(43): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(91): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(92): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(93): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(96): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(97): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(98): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(111): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(113): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(117): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(118): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(119): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(123): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(124): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(145): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(145): error C2228: left of '.ID' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(145): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(146): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(146): error C2228: left of '.name' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(146): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(147): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(147): error C2228: left of '.chunk_x_size_metres' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(147): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(148): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(148): error C2228: left of '.chunk_y_size_metres' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(148): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(149): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(149): error C2228: left of '.chunk_base_resolution' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(149): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(150): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(150): error C2228: left of '.heightmap_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(150): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(151): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(151): error C2228: left of '.tex_diffuse_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(151): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(152): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(152): error C2228: left of '.tex_splat_alpha_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(152): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(153): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(153): error C2228: left of '.tex_splat_1_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(153): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(154): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(154): error C2228: left of '.tex_splat_2_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(154): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(155): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(155): error C2228: left of '.tex_splat_3_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(155): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(156): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(156): error C2228: left of '.tex_splat_4_path' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(156): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(157): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(157): error C2228: left of '.render_wireframe' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(157): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(158): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(158): error C2228: left of '.render_normals' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(158): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(159): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(159): error C2228: left of '.tex_diffuse_tiling' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(159): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(160): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(160): error C2228: left of '.tex_splat_1_tiling' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(160): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(161): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(161): error C2228: left of '.tex_splat_2_tiling' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(161): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(162): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(162): error C2228: left of '.tex_splat_3_tiling' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(162): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(163): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(163): error C2228: left of '.tex_splat_4_tiling' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(163): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(167): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(167): error C2228: left of '.BuildDisplayList' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(167): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(169): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(169): error C2228: left of '.BuildDisplayChunk' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(169): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(169): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(251): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(251): error C2228: left of '.SaveDisplayChunk' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(251): note: type is 'unknown-type'
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(251): error C2065: 'm_chunk': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(265): error C2065: 'm_d3dRenderer': undeclared identifier
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(265): error C2228: left of '.Tick' must have class/struct/union
-  c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(265): note: type is 'unknown-type'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+  TransformDialogue.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
   BaseModel.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   Camera.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\camera.h(1): fatal error C1083: Cannot open include file: 'glm.hpp': No such file or directory
   ImportedModel.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
-  Main.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(3): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   Plane.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   PlaneMesh.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  PreviewWindowRender.cpp
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): warning C4003: not enough actual parameters for macro 'max'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2589: '(': illegal token on right side of '::'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2062: type 'unknown-type' unexpected
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2059: syntax error: ')'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(378): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(714): warning C4018: '<': signed/unsigned mismatch
   Renderer.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(3): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(48): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(59): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(363): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
   Shared.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\shared.h(5): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\shared.cpp(108): warning C4244: 'initializing': conversion from 'std::streamoff' to '::size_t', possible loss of data
   VisibilityBuffer.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): warning C4003: not enough actual parameters for macro 'max'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2589: '(': illegal token on right side of '::'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2062: type 'unknown-type' unexpected
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2059: syntax error: ')'
   VulkanDeferredApplication.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(79): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(119): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): warning C4003: not enough actual parameters for macro 'max'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2589: '(': illegal token on right side of '::'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2062: type 'unknown-type' unexpected
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2059: syntax error: ')'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(610): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(695): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1199): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1280): warning C4552: '-': operator has no effect; expected operator with side-effect
   Window.cpp
-c:\users\1503395\downloads\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.h(2): fatal error C1083: Cannot open include file: 'vulkan/vulkan.h': No such file or directory
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(320): warning C4552: '|': operator has no effect; expected operator with side-effect
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(570): warning C4018: '<': signed/unsigned mismatch
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2065: 'VkWin32SurfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2146: syntax error: missing ';' before identifier 'surfaceCreateInfoKHR'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): error C2228: left of '.sType' must have class/struct/union
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): note: type is 'unknown-type'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): error C2228: left of '.hwnd' must have class/struct/union
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): note: type is 'unknown-type'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): error C2228: left of '.hinstance' must have class/struct/union
+  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): note: type is 'unknown-type'
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(981): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(981): error C3861: 'vkCreateWin32SurfaceKHR': identifier not found
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(1605): warning C4018: '<': signed/unsigned mismatch
   Generating Code...

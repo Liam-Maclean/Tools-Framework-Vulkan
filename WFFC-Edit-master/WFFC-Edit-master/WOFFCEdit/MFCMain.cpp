@@ -13,7 +13,6 @@ BEGIN_MESSAGE_MAP(MFCMain, CWinApp)
 	ON_COMMAND(ID_EDIT_MODELPREVIEW, &MFCMain::ModelPreviewButton)
 	ON_COMMAND(ID_EDIT_MODELTRANSFORMS, &MFCMain::transformationButton)
 	ON_COMMAND(ID_NORMAL_VIEW, &MFCMain::NormalsButton)
-
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_TOOL, &CMyFrame::OnUpdatePage)
 END_MESSAGE_MAP()
 
@@ -109,7 +108,7 @@ void MFCMain::MenuEditSelect()
 	//modeless dialogue must be declared in the class.   If we do local it will go out of scope instantly and destroy itself
 	m_ToolSelectDialogue.Create(IDD_DIALOG1);	//Start up modeless
 	m_ToolSelectDialogue.ShowWindow(SW_SHOW);	//show modeless
-	m_ToolSelectDialogue.SetObjectData(m_ToolSystem->models, &m_ToolSystem->m_selectedObject);
+	m_ToolSelectDialogue.SetObjectData(m_ToolSystem->models, &m_ToolSystem->m_selectedObjectID);
 }
 
 void MFCMain::ToolBarButton1()

@@ -62,6 +62,58 @@ void VulkanDeferredApplication::Update(CRect screenRect)
 	//vkDeviceWaitIdle(_renderer->GetVulkanDevice());
 }
 
+int VulkanDeferredApplication::MousePicking(InputCommands m_InputCommands)
+{
+	int selectedID = -1;
+	float pickedDistance = 0;
+
+	//Setup the near and far source in screen space to convert to world space
+	//glm::vec4 nearSource = glm::vec4(m_InputCommands.mouse_x, m_InputCommands.mouse_y, -1.0f, 1.0f);
+	//glm::vec4 farSource = glm::vec4(m_InputCommands.mouse_x, m_InputCommands.mouse_y, 1.0f, 1.0f);
+
+	//Half width and height might be needed?
+	float halfWidth = _swapChainExtent.width * 0.5f;
+	float halfHeight = _swapChainExtent.height * 0.5f;
+
+	//Loop through entire display list of objects and pick with each in turn. 
+	for (int i = 0; i < _models.size(); i++)
+	{
+
+		//Normalized screen coordinates
+		glm::vec4 NDC;
+		NDC.x = (static_cast<float>(m_InputCommands.mouse_x) - halfWidth) / halfWidth;
+		NDC.y = (halfHeight - static_cast<float>(m_InputCommands.mouse_y)) / halfHeight;
+		//Take the inverse projection of the view and projection matrices of the camera
+		glm::mat4 inverseProjection = offScreenUniformVSData.view * offScreenUniformVSData.projection;
+		inverseProjection = glm::inverse(inverseProjection);
+		
+
+		glm::vec4 nearSource = glm::vec4(NDC.x, NDC.y, -1.0f, 1.0f);
+		glm::vec4 farSource = glm::vec4(NDC.x, NDC.y, 1.0f, 1.0f);
+
+		//multiply the near and far source by the inverse projection to get the near and far points of the ray intersection
+		glm::vec4 nearPoint = nearSource * inverseProjection;
+		glm::vec4 farPoint = farSource * inverseProjection;
+
+		nearPoint /= nearPoint.w;
+		farPoint /= farPoint.w;
+
+		//Get the direction of the ray through simple vector maths
+		glm::vec4 direction = farPoint - nearPoint;
+		direction = glm::normalize(direction);
+
+		if (glm::intersectRaySphere(glm::vec4(1.0f, 3.0f, 4.0f, 1.0f), direction, _models[i]->position, _models[i]->colliderRadius, _models[i]->position, -direction))
+		{
+			selectedID = i;
+		}
+	}
+
+	//if we got a hit.  return it.  
+	return selectedID;
+
+	//return 0;
+}
+
 void VulkanDeferredApplication::UpdateModelList(std::vector<vk::wrappers::Model*> models)
 {
 	for (int i = 0; i < models.size(); i++)

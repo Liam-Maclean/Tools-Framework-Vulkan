@@ -77,13 +77,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)VulkanRenderer\GLFW\include;$(ProjectDir)VulkanRenderer\glm;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Include;$(ProjectDir)VulkanRenderer;$(ProjectDir)VulkanRenderer\GLFW\include\GLFW;$(ProjectDir)VulkanRenderer\GLFW;$(ProjectDir)VulkanRenderer\glm\glm;$(ProjectDir);$(IncludePath)</IncludePath>
+    <ReferencePath>$(ProjectDir)VulkanRenderer\Shaders;$(ProjectDir)VulkanRenderer\VulkanProject\Textures;$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(ProjectDir)VulkanRenderer\GLFW\lib-vc2015;$(ProjectDir)VulkanRenderer\glm\glm;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Lib32;$(ProjectDir)VulkanRenderer\glm;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)VulkanRenderer\GLFW\include;$(ProjectDir)VulkanRenderer\glm;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Include;$(ProjectDir)VulkanRenderer;$(ProjectDir)VulkanRenderer\GLFW\include\GLFW;$(ProjectDir)VulkanRenderer\GLFW;$(ProjectDir)VulkanRenderer\glm\glm;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)VulkanRenderer\GLFW\include;$(ProjectDir)VulkanRenderer\glm;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Include;$(ProjectDir)VulkanRenderer;$(ProjectDir)VulkanRenderer\GLFW\include\GLFW;$(ProjectDir)VulkanRenderer\GLFW;$(ProjectDir)VulkanRenderer\glm\glm;$(ProjectDir);$(IncludePath)</IncludePath>
     <ReferencePath>$(ProjectDir)VulkanRenderer\Shaders;$(ProjectDir)VulkanRenderer\VulkanProject\Textures;$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)VulkanRenderer\GLFW\lib-vc2015;$(ProjectDir)VulkanRenderer\glm\glm;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Lib32;$(ProjectDir)VulkanRenderer\glm;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -99,6 +102,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>$(ProjectDir)VulkanRenderer\TinyObjLoader;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Include;$(ProjectDir)VulkanRenderer\glm;$(ProjectDir)VulkanRenderer\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,7 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;VK_USE_PLATFORM_WIN32_KHR;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\1503395\Downloads\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\VulkanRenderer\TinyObjLoader;C:\Users\1503395\Downloads\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\VulkanRenderer\VulkanSDK\1.1.73.0\Include;C:\Users\1503395\Downloads\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\VulkanRenderer\glm;C:\Users\1503395\Downloads\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\VulkanRenderer\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)VulkanRenderer\TinyObjLoader;$(ProjectDir)VulkanRenderer\VulkanSDK\1.1.73.0\Include;$(ProjectDir)VulkanRenderer\glm;$(ProjectDir)VulkanRenderer\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,14 +172,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChunkObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MFCFrame.cpp" />
     <ClCompile Include="MFCRenderFrame.cpp" />
     <ClCompile Include="ModelPreviewDialogue.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="MFCMain.cpp" />
-    <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="SelectDialogue.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="ToolMain.cpp" />
@@ -183,7 +185,6 @@
     <ClCompile Include="VulkanRenderer\VulkanProject\BaseModel.cpp" />
     <ClCompile Include="VulkanRenderer\VulkanProject\Camera.cpp" />
     <ClCompile Include="VulkanRenderer\VulkanProject\ImportedModel.cpp" />
-    <ClCompile Include="VulkanRenderer\VulkanProject\Main.cpp" />
     <ClCompile Include="VulkanRenderer\VulkanProject\Plane.cpp" />
     <ClCompile Include="VulkanRenderer\VulkanProject\PlaneMesh.cpp" />
     <ClCompile Include="VulkanRenderer\VulkanProject\PreviewWindowRender.cpp" />
@@ -194,14 +195,12 @@
     <ClCompile Include="VulkanRenderer\VulkanProject\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChunkObject.h" />
     <ClInclude Include="InputCommands.h" />
     <ClInclude Include="MFCFrame.h" />
     <ClInclude Include="MFCRenderFrame.h" />
     <ClInclude Include="ModelPreviewDialogue.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SceneObject.h" />
     <ClInclude Include="SelectDialogue.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="stdafx.h" />

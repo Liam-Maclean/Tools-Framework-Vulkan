@@ -3,10 +3,11 @@
 #include <afxext.h>
 #include "pch.h"
 #include "sqlite3.h"
-#include "SceneObject.h"
+//#include "SceneObject.h"
 #include "InputCommands.h"
 #include "VulkanRenderer/VulkanProject/VulkanDeferredApplication.h"
 #include <vector>
+#include <string>
 
 
 class ToolMain : public VulkanDeferredApplication
@@ -16,8 +17,8 @@ public: //methods
 		:VulkanDeferredApplication(renderer, width, height,instance, window)
 	{
 		m_currentChunk = 0;		//default value
-		m_selectedObject = 0;	//initial selection ID
-		m_sceneGraph.clear();	//clear the vector for the scenegraph
+		m_selectedObjectID = 0;	//initial selection ID
+		//m_sceneGraph.clear();	//clear the vector for the scenegraph
 		m_databaseConnection = NULL;
 
 		//zero input commands
@@ -30,6 +31,7 @@ public: //methods
 
 	//onAction - These are the interface to MFC
 	int		getCurrentSelectionID();										//returns the selection number of currently selected object so that It can be displayed.
+	std::string	getCurrentSelectionName();
 	void	onActionInitialise(HWND handle, int width, int height);			//Passes through handle and hieght and width and initialises DirectX renderer and SQL LITE
 	void	onActionWireframeMode();
 	void	onActionLightEnabled();
@@ -44,8 +46,9 @@ public: //methods
 	void	UpdateInput(MSG *msg);
 
 public:	//variables
-	std::vector<SceneObject>    m_sceneGraph;	//our scenegraph storing all the objects in the current chunk
-	int m_selectedObject;						//ID of current Selection
+	//std::vector<SceneObject>    m_sceneGraph;	//our scenegraph storing all the objects in the current chunk
+	int m_selectedObjectID;						//ID of current Selection
+	std::string m_selectedObjectName;
 	std::vector<vk::wrappers::Model*> models;
 private:	//methods
 	void	onContentAdded();
@@ -58,7 +61,6 @@ private:	//variables
 	CRect	WindowRECT;		//Window area rectangle. 
 	char	m_keyArray[256];
 	sqlite3 *m_databaseConnection;	//sqldatabase handle
-
 	int m_width;		//dimensions passed to directX
 	int m_height;
 	int m_currentChunk;			//the current chunk of thedatabase that we are operating on.  Dictates loading and saving. 

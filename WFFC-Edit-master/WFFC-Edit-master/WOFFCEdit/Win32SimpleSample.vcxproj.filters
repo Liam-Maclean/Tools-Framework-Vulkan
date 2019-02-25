@@ -41,12 +41,6 @@
     <ClCompile Include="sqlite3.c">
       <Filter>SQLITE</Filter>
     </ClCompile>
-    <ClCompile Include="SceneObject.cpp">
-      <Filter>Tool</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkObject.cpp">
-      <Filter>Tool</Filter>
-    </ClCompile>
     <ClCompile Include="MFCFrame.cpp">
       <Filter>MFC</Filter>
     </ClCompile>
@@ -55,9 +49,6 @@
     </ClCompile>
     <ClCompile Include="SelectDialogue.cpp">
       <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="VulkanRenderer\VulkanProject\Main.cpp">
-      <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="VulkanRenderer\VulkanProject\BaseModel.cpp">
       <Filter>Renderer\Mesh Types</Filter>
@@ -112,12 +103,6 @@
     </ClInclude>
     <ClInclude Include="sqlite3.h">
       <Filter>SQLITE</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneObject.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkObject.h">
-      <Filter>Tool</Filter>
     </ClInclude>
     <ClInclude Include="InputCommands.h">
       <Filter>Tool</Filter>

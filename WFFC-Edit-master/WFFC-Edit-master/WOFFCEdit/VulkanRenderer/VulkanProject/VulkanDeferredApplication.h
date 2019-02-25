@@ -1,14 +1,15 @@
 #pragma once
+#define GLM_ENABLE_EXPERIMENTAL
 #include "Window.h"
 #include "Renderer.h"
 #include "glm/glm.hpp"
+#include <glm/gtx/intersect.hpp>
+#include <InputCommands.h>
 #include "Camera.h"
 #include "Plane.h"
 #include "PlaneMesh.h"
 #include "ImportedModel.h"
 #include <atltypes.h>
-
-
 #define TEX_DIMENSIONS 2048;
 
 class VulkanDeferredApplication : public VulkanWindow
@@ -55,7 +56,7 @@ public:
 		VkDescriptorSet house;
 	}descriptorSets;
 
-
+	int MousePicking(InputCommands m_InputCommands);
 	void UpdateModelList(std::vector<vk::wrappers::Model*> models);
 	void CreateCamera();
 	void InitialiseVulkanApplication();
