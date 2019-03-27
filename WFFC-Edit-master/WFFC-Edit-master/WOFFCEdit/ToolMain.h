@@ -53,7 +53,7 @@ public:	//variables
 private:	//methods
 	void	onContentAdded();
 
-
+	bool render = false;
 		
 private:	//variables
 	HWND	m_toolHandle;		//Handle to the  window

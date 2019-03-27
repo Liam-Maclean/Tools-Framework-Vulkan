@@ -1,12 +1,14 @@
-﻿  VulkanDeferredApplication.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(79): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(119): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(610): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(695): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1199): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1280): warning C4552: '-': operator has no effect; expected operator with side-effect
+﻿  MFCFrame.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MFCMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  Main.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  ToolMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(74): warning C4101: 'pResultsChunk': unreferenced local variable
   Generating code
-  3 of 5438 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 5444 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

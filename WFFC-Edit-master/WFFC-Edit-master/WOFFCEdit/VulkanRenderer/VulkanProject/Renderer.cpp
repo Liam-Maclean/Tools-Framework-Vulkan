@@ -191,6 +191,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VulkanDebugCallback(VkDebugReportFlagsEXT flags, 
 	#ifdef _WIN32
 		if (flags & VK_DEBUG_REPORT_ERROR_BIT_EXT)
 		{
+			printf("AHHHHHHH");
 			//MessageBox(NULL, stream.str().c_str(), "Vulkan ERROR!", 0);
 		}
 	#endif // _WIN32

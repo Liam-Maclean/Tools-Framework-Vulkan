@@ -148,7 +148,7 @@ void ToolMain::onActionLoad()
 	
 	}
 
-
+	sqlite3_close(m_databaseConnection);
 	UpdateModelList(models);
 	//Initialise the vulkan graphics framework with models loaded from SQLITE database
 	InitialiseVulkanApplication();
@@ -239,12 +239,17 @@ void ToolMain::Tick(MSG *msg)
 {
 	if (m_toolInputCommands.mouse_lb_down)
 	{
+		render = true;
 		m_selectedObjectID = MousePicking(m_toolInputCommands);
 		m_toolInputCommands.mouse_lb_down = false;
+
 	}
 
-	//Renderer Update Call
-	VulkanDeferredApplication::Update(WindowRECT);
+	//if (render == true)
+	//{
+		//Renderer Update Call
+		VulkanDeferredApplication::Update(WindowRECT);
+	//}
 }
 
 void ToolMain::UpdateInput(MSG * msg)

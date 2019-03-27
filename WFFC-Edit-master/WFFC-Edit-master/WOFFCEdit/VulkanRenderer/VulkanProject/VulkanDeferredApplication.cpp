@@ -23,7 +23,7 @@ void VulkanDeferredApplication::InitialiseVulkanApplication()
 
 VulkanDeferredApplication::~VulkanDeferredApplication()
 {
-	vkDestroyDescriptorSetLayout(_renderer->GetVulkanDevice(), offScreenDescriptorSetLayout, nullptr);
+	//vkDestroyDescriptorSetLayout(_renderer->GetVulkanDevice(), offScreenDescriptorSetLayout, nullptr);
 	vkDestroySampler(_renderer->GetVulkanDevice(), colorSampler, nullptr);
 	vkDestroySemaphore(_renderer->GetVulkanDevice(), presentCompleteSemaphore, nullptr);
 	vkDestroySemaphore(_renderer->GetVulkanDevice(), renderCompleteSemaphore, nullptr);
@@ -34,7 +34,7 @@ VulkanDeferredApplication::~VulkanDeferredApplication()
 void VulkanDeferredApplication::Update(CRect screenRect)
 {
 #ifdef WIN32
-		VulkanWindow::screenSize = screenRect;
+		//VulkanWindow::screenSize = screenRect;
 		if (renderChange == true)
 		{
 			VulkanDeferredApplication::CreateDeferredCommandBuffers();
@@ -82,7 +82,7 @@ int VulkanDeferredApplication::MousePicking(InputCommands m_InputCommands)
 		//Normalized screen coordinates
 		glm::vec4 NDC;
 		NDC.x = (static_cast<float>(m_InputCommands.mouse_x) - halfWidth) / halfWidth;
-		NDC.y = (halfHeight - static_cast<float>(m_InputCommands.mouse_y)) / halfHeight;
+		NDC.y = (static_cast<float>(m_InputCommands.mouse_y) - halfHeight) / halfHeight;
 		//Take the inverse projection of the view and projection matrices of the camera
 		glm::mat4 inverseProjection = offScreenUniformVSData.view * offScreenUniformVSData.projection;
 		inverseProjection = glm::inverse(inverseProjection);
@@ -101,8 +101,14 @@ int VulkanDeferredApplication::MousePicking(InputCommands m_InputCommands)
 		//Get the direction of the ray through simple vector maths
 		glm::vec4 direction = farPoint - nearPoint;
 		direction = glm::normalize(direction);
+		direction = glm::vec4(-direction.x, -direction.y, direction.z, 0.0f);
+		glm::vec4 cameraPos = glm::vec4(camera->GetCameraEye().x, camera->GetCameraEye().y, camera->GetCameraEye().z, 1.0f);
 
-		if (glm::intersectRaySphere(glm::vec4(1.0f, 3.0f, 4.0f, 1.0f), direction, _models[i]->position, _models[i]->colliderRadius, _models[i]->position, -direction))
+		glm::vec4 collisionNormal;
+		glm::vec4 collisionPoint;
+		float intersectionDistance;
+
+		if (glm::intersectRaySphere(cameraPos, direction, _models[i]->position, (_models[i]->colliderRadius * _models[i]->colliderRadius), (intersectionDistance)))
 		{
 			selectedID = i;
 		}
@@ -140,10 +146,9 @@ void VulkanDeferredApplication::CreateCamera()
 //Draw frame
 void VulkanDeferredApplication::DrawFrame()
 {
-	vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
-	vkQueueWaitIdle(_renderer->GetVulkanGraphicsQueue());
+
 	uint32_t imageIndex;
-	VkResult result = vkAcquireNextImageKHR(_renderer->GetVulkanDevice(), _swapChain, std::numeric_limits<uint64_t>::max(),presentCompleteSemaphore, VK_NULL_HANDLE, &imageIndex);
+	result = vkAcquireNextImageKHR(_renderer->GetVulkanDevice(), _swapChain, std::numeric_limits<uint64_t>::max(),presentCompleteSemaphore, VK_NULL_HANDLE, &imageIndex);
 	//
 	if (result == VK_ERROR_OUT_OF_DATE_KHR)
 	{
@@ -157,11 +162,8 @@ void VulkanDeferredApplication::DrawFrame()
 
 	UpdateUniformBuffer(imageIndex);
 
-
 	VkSubmitInfo submitInfo = {};
 	submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
-	submitInfo.signalSemaphoreCount = 1;
-	submitInfo.waitSemaphoreCount = 1;
 	// Wait for swap chain presentation to finish
 	submitInfo.pWaitSemaphores = &presentCompleteSemaphore;
 	// Signal ready with offscreen semaphore
@@ -207,7 +209,7 @@ void VulkanDeferredApplication::DrawFrame()
 
 	currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 
-	//vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
+	vkQueueWaitIdle(_renderer->GetVulkanPresentQueue());
 }
 
 void VulkanDeferredApplication::_CreateOutlinePipeline()
@@ -802,7 +804,7 @@ void VulkanDeferredApplication::CreateShadowRenderPass()
 	dependencies[0].srcStageMask = VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT;
 	dependencies[0].dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
 	dependencies[0].srcAccessMask = VK_ACCESS_MEMORY_READ_BIT;
-	dependencies[0].srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+	dependencies[0].dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
 	dependencies[0].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
 	dependencies[1].srcSubpass = 0;
@@ -914,7 +916,7 @@ void VulkanDeferredApplication::CreateGBuffer()
 	dependencies[0].srcStageMask = VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT;
 	dependencies[0].dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
 	dependencies[0].srcAccessMask = VK_ACCESS_MEMORY_READ_BIT;
-	dependencies[0].srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+	dependencies[0].dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
 	dependencies[0].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
 	dependencies[1].srcSubpass = 0;

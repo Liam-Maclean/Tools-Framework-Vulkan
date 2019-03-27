@@ -1,102 +1,13 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Win32SimpleSample.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MFCMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
   Main.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  MFCFrame.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  MFCRenderFrame.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
   ModelPreviewDialogue.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  pch.cpp
-  MFCMain.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  SelectDialogue.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\selectdialogue.cpp(41): warning C4018: '<': signed/unsigned mismatch
-  ToolMain.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  TransformDialogue.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  BaseModel.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Camera.cpp
-  ImportedModel.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Plane.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  PlaneMesh.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   PreviewWindowRender.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): warning C4003: not enough actual parameters for macro 'max'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2589: '(': illegal token on right side of '::'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2062: type 'unknown-type' unexpected
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(80): error C2059: syntax error: ')'
 \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(378): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
 \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(714): warning C4018: '<': signed/unsigned mismatch
-  Renderer.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(48): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(59): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.cpp(363): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-  Shared.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\shared.cpp(108): warning C4244: 'initializing': conversion from 'std::streamoff' to '::size_t', possible loss of data
-  VisibilityBuffer.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): warning C4003: not enough actual parameters for macro 'max'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2589: '(': illegal token on right side of '::'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2062: type 'unknown-type' unexpected
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\visibilitybuffer.cpp(696): error C2059: syntax error: ')'
-  VulkanDeferredApplication.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(79): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(119): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): warning C4003: not enough actual parameters for macro 'max'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2589: '(': illegal token on right side of '::'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2062: type 'unknown-type' unexpected
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(146): error C2059: syntax error: ')'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(610): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(695): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1199): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1280): warning C4552: '-': operator has no effect; expected operator with side-effect
-  Window.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\renderer.h(112): error C2065: 'VK_KHR_WIN32_SURFACE_EXTENSION_NAME': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(320): warning C4552: '|': operator has no effect; expected operator with side-effect
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(570): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2065: 'VkWin32SurfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2146: syntax error: missing ';' before identifier 'surfaceCreateInfoKHR'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(976): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): error C2228: left of '.sType' must have class/struct/union
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(977): note: type is 'unknown-type'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): error C2228: left of '.hwnd' must have class/struct/union
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(978): note: type is 'unknown-type'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): error C2228: left of '.hinstance' must have class/struct/union
-  \\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(979): note: type is 'unknown-type'
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(981): error C2065: 'surfaceCreateInfoKHR': undeclared identifier
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(981): error C3861: 'vkCreateWin32SurfaceKHR': identifier not found
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\window.cpp(1605): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Win32SimpleSample.vcxproj -> \\StuHome\HomeDrive5$\1503395\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Debug\WoFEdit.exe

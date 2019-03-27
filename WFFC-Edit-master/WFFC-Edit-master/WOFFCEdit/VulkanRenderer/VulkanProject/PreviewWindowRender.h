@@ -91,10 +91,10 @@ public:
 	VkDescriptorSetLayout offScreenDescriptorSetLayout;
 	VkDescriptorSetLayout deferredDescriptorSetLayout;
 
-	VkCommandBuffer offScreenCmdBuffer;
-	VkSemaphore presentCompleteSemaphore;
-	VkSemaphore renderCompleteSemaphore;
-	VkSemaphore offScreenSemaphore;
+	VkCommandBuffer offScreenCmdBuffer = VK_NULL_HANDLE;
+	VkSemaphore presentCompleteSemaphore = VK_NULL_HANDLE;
+	VkSemaphore renderCompleteSemaphore = VK_NULL_HANDLE;
+	VkSemaphore offScreenSemaphore = VK_NULL_HANDLE;
 
 
 	vk::wrappers::Buffer offScreenVertexUBOBuffer;

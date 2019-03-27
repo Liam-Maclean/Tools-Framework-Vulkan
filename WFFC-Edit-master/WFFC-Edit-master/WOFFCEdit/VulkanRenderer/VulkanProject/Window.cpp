@@ -202,8 +202,8 @@ VkExtent2D VulkanWindow::_ChooseSwapExtent(const VkSurfaceCapabilitiesKHR & capa
 			static_cast<uint32_t>(200)
 		};
 
-		//actualExtent.width = std::max(capabilities.minImageExtent.width, std::min(capabilities.maxImageExtent.width, actualExtent.width));
-		//actualExtent.height = std::max(capabilities.minImageExtent.height, std::min(capabilities.maxImageExtent.height, actualExtent.height));
+		actualExtent.width = std::max(capabilities.minImageExtent.width, std::min(capabilities.maxImageExtent.width, actualExtent.width));
+		actualExtent.height = std::max(capabilities.minImageExtent.height, std::min(capabilities.maxImageExtent.height, actualExtent.height));
 
 		return actualExtent;
 	}
@@ -1066,7 +1066,6 @@ void VulkanWindow::_CreateSwapChain()
 	swap_chain_create_info.preTransform = swapChainSupport.capabilities.currentTransform;
 	swap_chain_create_info.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
 	swap_chain_create_info.presentMode = presentMode;
-
 	//if window is ontop and pixels are obscured then don't read those pixels
 	swap_chain_create_info.clipped = VK_TRUE;
 
@@ -1147,8 +1146,6 @@ void VulkanWindow::_RecreateSwapChain()
 
 	VulkanWindow::_CreateSwapChain();
 	VulkanWindow::_CreateImageViews();
-	//VulkanWindow::_CreateRenderPass();
-	//VulkanWindow::_CreateGraphicsPipeline();
 	VulkanWindow::_CreateDepthResources();
 	VulkanWindow::_CreateFramebuffers();
 	VulkanWindow::_CreateCommandBuffers();
@@ -1403,7 +1400,7 @@ void VulkanWindow::_CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, Vk
 	buffer_create_info.size = size;
 	buffer_create_info.usage = usage;
 	buffer_create_info.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
-
+	
 	vk::tools::ErrorCheck(vkCreateBuffer(_renderer->GetVulkanDevice(), &buffer_create_info, nullptr, &buffer));
 
 	VkMemoryRequirements mem_requirements;

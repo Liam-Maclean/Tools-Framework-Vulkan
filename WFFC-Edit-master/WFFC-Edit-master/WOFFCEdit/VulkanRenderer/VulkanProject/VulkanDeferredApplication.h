@@ -146,13 +146,13 @@ public:
 	vk::wrappers::GFrameBuffer deferredOffScreenFrameBuffer;
 	VkSampler colorSampler;
 
-	VkSemaphore presentCompleteSemaphore;
-	VkSemaphore renderCompleteSemaphore;
-	VkSemaphore offScreenSemaphore;
-	VkSemaphore shadowSemaphore;
+	VkSemaphore presentCompleteSemaphore = VK_NULL_HANDLE;
+	VkSemaphore renderCompleteSemaphore = VK_NULL_HANDLE;
+	VkSemaphore offScreenSemaphore = VK_NULL_HANDLE;
+	VkSemaphore shadowSemaphore = VK_NULL_HANDLE;
 
-	VkCommandBuffer shadowCmdBuffer;
-	VkCommandBuffer offScreenCmdBuffer;
+	VkCommandBuffer shadowCmdBuffer = VK_NULL_HANDLE;
+	VkCommandBuffer offScreenCmdBuffer = VK_NULL_HANDLE;
 
 	Camera* camera;
 
@@ -165,7 +165,7 @@ public:
 
 	vk::wrappers::Buffer fullScreenVertexUBOBuffer;
 	vk::wrappers::Buffer offScreenVertexUBOBuffer;
-
+	VkResult result;
 private:
 
 	float lightingToggled = 0;

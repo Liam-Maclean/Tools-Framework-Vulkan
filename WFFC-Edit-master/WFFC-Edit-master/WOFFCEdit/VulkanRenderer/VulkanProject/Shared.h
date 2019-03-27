@@ -126,7 +126,7 @@ namespace vk
 			VkDescriptorSet descriptorSet;
 			BaseMesh* mesh;
 			vk::wrappers::Texture2D texture;
-			float colliderRadius = 1.0f;
+			float colliderRadius = 0.5f;
 
 
 			//String details (File paths and name)
