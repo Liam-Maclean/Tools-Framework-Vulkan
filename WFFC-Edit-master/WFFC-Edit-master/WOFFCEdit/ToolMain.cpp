@@ -58,6 +58,28 @@ void ToolMain::onActionNormalEnabled()
 	ToggleNormalMode();
 }
 
+bool ToolMain::onActionTransformWindowEnabled(vk::wrappers::Model& modelOut)
+{
+	if (m_selectedObjectID != -1)
+	{
+		
+		modelOut = *models[m_selectedObjectID];
+		return true;
+	}
+	else
+	{
+		MessageBox(m_toolHandle, L"Failed to load", L"failed to load", MB_OK);
+		return false;
+	}
+}
+
+void ToolMain::UpdateModelTransform(vk::wrappers::Model & model, int id)
+{
+	_models[id] = &model;
+	UpdateModelList(models);
+
+}
+
 void ToolMain::onActionLoad()
 {
 	//load current chunk and objects into lists

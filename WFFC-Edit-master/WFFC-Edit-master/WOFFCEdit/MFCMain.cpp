@@ -77,9 +77,21 @@ int MFCMain::Run()
 		}
 		else
 		{	
+			
+
 			int ID = m_ToolSystem->getCurrentSelectionID();
+
 			std::wstring statusString = L"Selected Object: " + std::to_wstring(ID);
 			m_ToolSystem->Tick(&msg);
+
+
+			if (m_ToolModelPreviewDialogue)
+			{
+				vk::wrappers::Model model;
+				m_ToolTransformationDialogue.HandBackModel(model);
+
+				m_ToolSystem->UpdateModelTransform(model, ID);
+			}
 
 			//send current object ID to status bar in The main frame
 			m_frame->m_wndStatusBar.SetPaneText(1, statusString.c_str(), 1);	
@@ -141,7 +153,10 @@ void MFCMain::ModelPreviewButton()
 
 void MFCMain::transformationButton()
 {
+	vk::wrappers::Model* modelSelected = new vk::wrappers::Model();
 	m_ToolTransformationDialogue.Create(IDD_TRANSFORMATION_DIALOG);
+	m_ToolSystem->onActionTransformWindowEnabled(*modelSelected);
+	m_ToolTransformationDialogue.HandModel(modelSelected);
 	m_ToolTransformationDialogue.ShowWindow(SW_SHOW);
 }
 

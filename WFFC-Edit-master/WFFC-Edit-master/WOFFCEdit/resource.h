@@ -13,14 +13,24 @@
 #define IDC_LIST1                       1001
 #define IDC_MFCVSLISTBOX2               1005
 #define IDC_EDIT2                       1007
+#define IDC_POSITION_X                  1007
 #define IDC_EDIT3                       1008
+#define IDC_POSITION_Y                  1008
 #define IDC_EDIT4                       1009
+#define IDC_POSITION_Z                  1009
 #define IDC_EDIT5                       1010
+#define IDC_ROTATION_X                  1010
 #define IDC_EDIT6                       1011
+#define IDC_ROTATION_Y                  1011
 #define IDC_EDIT7                       1012
+#define IDC_ROTATION_Z                  1012
 #define IDC_EDIT8                       1013
+#define IDC_SCALE_X                     1013
 #define IDC_EDIT9                       1014
+#define IDC_SCALE_Y                     1014
 #define IDC_EDIT10                      1015
+#define IDC_SCALE_Z                     1015
+#define IDC_MODEL_NAME                  1016
 #define ID_BUTTON40001                  40001
 #define ID_FILE                         40002
 #define ID_EDIT_SELECT                  40003
@@ -47,7 +57,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        124
 #define _APS_NEXT_COMMAND_VALUE         40019
-#define _APS_NEXT_CONTROL_VALUE         1008
+#define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           102
 #endif
 #endif

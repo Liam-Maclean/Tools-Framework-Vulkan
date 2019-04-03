@@ -35,12 +35,12 @@ void VulkanDeferredApplication::Update(CRect screenRect)
 {
 #ifdef WIN32
 		//VulkanWindow::screenSize = screenRect;
-		if (renderChange == true)
-		{
+		//if (renderChange == true)
+		//{
 			VulkanDeferredApplication::CreateDeferredCommandBuffers();
-			renderChange = false;
+		//	renderChange = false;
 		
-		}
+		//}
 		VulkanDeferredApplication::DrawFrame();
 		//camera->HandleInput(_window);
 #else
@@ -122,8 +122,10 @@ int VulkanDeferredApplication::MousePicking(InputCommands m_InputCommands)
 
 void VulkanDeferredApplication::UpdateModelList(std::vector<vk::wrappers::Model*> models)
 {
+	_models.clear();
 	for (int i = 0; i < models.size(); i++)
 	{
+		
 		_models.push_back(new vk::wrappers::Model());
 		_models[i]->position = models[i]->position;
 		_models[i]->scale = models[i]->scale;
@@ -571,6 +573,23 @@ void VulkanDeferredApplication::_CreateShadowPipeline()
 //Updates the uniform buffers
 void VulkanDeferredApplication::UpdateUniformBuffer(uint32_t currentImage)
 {
+
+	//loop through each model
+	for (uint32_t i = 0; i < _models.size(); i++)
+	{
+		glm::mat4* modelMat = (glm::mat4*)(((uint64_t)uboDataDynamic.model + (i * dynamicAlignment)));
+		VkSampler* modelSampler = (VkSampler*)(((uint64_t)uboTextureDataDynamic.sampler + (i * dynamicTextureAlignment)));
+
+		_models[i]->ComputeMatrices();
+		*modelMat = _models[i]->model_matrix;
+	}
+
+	void* data3;
+	vkMapMemory(_renderer->GetVulkanDevice(), dynamicUboBuffer.memory, 0, bufferSize, 0, &data3);
+	memcpy(data3, uboDataDynamic.model, bufferSize);
+	dynamicUboBuffer.SetUpDescriptorSet();
+
+
 	offScreenUniformVSData.view = camera->GetViewMatrix();
 	offScreenUniformVSData.projection = camera->GetProjectionMatrix();
 	
@@ -701,7 +720,7 @@ void VulkanDeferredApplication::SetUpUniformBuffers()
 		dynamicAlignment = (dynamicAlignment + minUboAlignment - 1) & ~(minUboAlignment - 1);
 	}
 	//checks buffer size by how many models there are times alignment
-	size_t bufferSize = _models.size() * dynamicAlignment;
+	bufferSize = _models.size() * dynamicAlignment;
 	uboDataDynamic.model = (glm::mat4*)_aligned_malloc(bufferSize, dynamicAlignment);
 	assert(uboDataDynamic.model);
 

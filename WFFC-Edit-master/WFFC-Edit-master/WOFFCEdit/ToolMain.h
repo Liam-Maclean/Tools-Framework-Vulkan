@@ -36,6 +36,9 @@ public: //methods
 	void	onActionWireframeMode();
 	void	onActionLightEnabled();
 	void	onActionNormalEnabled();
+	bool	onActionTransformWindowEnabled(vk::wrappers::Model& modelOut);
+
+	void	UpdateModelTransform(vk::wrappers::Model& model, int id);
 
 	void	onActionFocusCamera();
 	void	onActionLoad();													//load the current chunk

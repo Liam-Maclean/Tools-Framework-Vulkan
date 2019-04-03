@@ -166,6 +166,9 @@ public:
 	vk::wrappers::Buffer fullScreenVertexUBOBuffer;
 	vk::wrappers::Buffer offScreenVertexUBOBuffer;
 	VkResult result;
+
+	size_t bufferSize;
+
 private:
 
 	float lightingToggled = 0;
