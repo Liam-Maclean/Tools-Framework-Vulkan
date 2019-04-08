@@ -7,6 +7,7 @@
 #include <vector>
 #include "VulkanRenderer/VulkanProject/Shared.h"
 
+
 class TransformDialogue : public CDialogEx
 {
 	DECLARE_DYNAMIC(TransformDialogue)
@@ -37,14 +38,14 @@ public:
 	CEdit scaleZ;
 	vk::wrappers::Model* selectedModel;
 
-
+	bool bInitialising = true;
 
 protected:
 	afx_msg void End();		//kill the dialogue
 	CListBox m_listBox;
 
 	void InitialiseWindowValues();
-
+	void InitialiseWindowValuesToZero();
 	DECLARE_MESSAGE_MAP()
 
 public:

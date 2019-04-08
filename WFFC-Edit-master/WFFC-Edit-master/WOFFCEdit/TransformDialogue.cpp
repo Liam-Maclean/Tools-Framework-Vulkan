@@ -34,9 +34,29 @@ void TransformDialogue::End()
 	DestroyWindow();
 }
 
+void TransformDialogue::HandModel(vk::wrappers::Model* model)
+{
+	if (model == nullptr)
+	{
+
+	}
+	else
+	{
+		selectedModel = model;
+		InitialiseWindowValues();
+	}
+
+}
+
+void TransformDialogue::HandBackModel(vk::wrappers::Model& model)
+{
+	model = *selectedModel;
+}
+
 void TransformDialogue::InitialiseWindowValues()
 {
 	CString text;
+	float replacementFloat;
 
 	CEdit* positionX = (CEdit*)GetDlgItem(IDC_POSITION_X);
 	text.Format(_T("%f"), selectedModel->position.x);
@@ -50,7 +70,6 @@ void TransformDialogue::InitialiseWindowValues()
 	text.Format(_T("%f"), selectedModel->position.z);
 	positionZ->ReplaceSel(text);
 
-
 	CEdit* scaleX = (CEdit*)GetDlgItem(IDC_SCALE_X);
 	text.Format(_T("%f"), selectedModel->scale.x);
 	scaleX->ReplaceSel(text);
@@ -63,7 +82,6 @@ void TransformDialogue::InitialiseWindowValues()
 	text.Format(_T("%f"), selectedModel->scale.z);
 	scaleZ->ReplaceSel(text);
 
-
 	CEdit* rotationX = (CEdit*)GetDlgItem(IDC_ROTATION_X);
 	text.Format(_T("%f"), selectedModel->rotation.x);
 	rotationX->ReplaceSel(text);
@@ -72,56 +90,84 @@ void TransformDialogue::InitialiseWindowValues()
 	text.Format(_T("%f"), selectedModel->rotation.y);
 	rotationY->ReplaceSel(text);
 
+	bInitialising = false;
+
 	CEdit* rotationZ = (CEdit*)GetDlgItem(IDC_ROTATION_Z);
 	text.Format(_T("%f"), selectedModel->rotation.z);
 	rotationZ->ReplaceSel(text);
 
+
 }
 
-void TransformDialogue::HandModel(vk::wrappers::Model* model)
+void TransformDialogue::InitialiseWindowValuesToZero()
 {
-	selectedModel = model;
-	InitialiseWindowValues();
-}
 
-void TransformDialogue::HandBackModel(vk::wrappers::Model& model)
-{
-	model = *selectedModel;
+	CString text;
+	CEdit* positionX = (CEdit*)GetDlgItem(IDC_POSITION_X);
+	positionX->ReplaceSel(L"0");
+
+	CEdit* positionY = (CEdit*)GetDlgItem(IDC_POSITION_Y);
+	positionY->ReplaceSel(L"0");
+
+	CEdit* positionZ = (CEdit*)GetDlgItem(IDC_POSITION_Z);
+	positionZ->ReplaceSel(L"0");
+
+	CEdit* scaleX = (CEdit*)GetDlgItem(IDC_SCALE_X);
+	scaleX->ReplaceSel(L"0");
+
+	CEdit* scaleY = (CEdit*)GetDlgItem(IDC_SCALE_Y);
+	scaleY->ReplaceSel(L"0");
+
+	CEdit* scaleZ = (CEdit*)GetDlgItem(IDC_SCALE_Z);
+	scaleZ->ReplaceSel(L"0");
+
+	CEdit* rotationX = (CEdit*)GetDlgItem(IDC_ROTATION_X);
+	rotationX->ReplaceSel(L"0");
+
+	CEdit* rotationY = (CEdit*)GetDlgItem(IDC_ROTATION_Y);
+	rotationY->ReplaceSel(L"0");
+
+	CEdit* rotationZ = (CEdit*)GetDlgItem(IDC_ROTATION_Z);
+	rotationZ->ReplaceSel(L"0");
 }
 
 void TransformDialogue::OnEnChangePosition()
 {
-	CString text;
-	//UINT nCountOfCharacters =
-	GetDlgItemText(IDC_POSITION_X, text);
-	selectedModel->position.x = _ttof(text);
 
-	GetDlgItemText(IDC_POSITION_Y, text);
-	selectedModel->position.y = _ttof(text);
+	if (bInitialising == false)
+	{
+		CString text;
+		//UINT nCountOfCharacters =
+		GetDlgItemText(IDC_POSITION_X, text);
+		selectedModel->position.x = _ttof(text);
 
-	GetDlgItemText(IDC_POSITION_Z, text);
-	selectedModel->position.z = _ttof(text);
+		GetDlgItemText(IDC_POSITION_Y, text);
+		selectedModel->position.y = _ttof(text);
 
-
-
-	GetDlgItemText(IDC_ROTATION_X, text);
-	selectedModel->rotation.x = _ttof(text);
-
-	GetDlgItemText(IDC_ROTATION_Y, text);
-	selectedModel->rotation.y = _ttof(text);
-
-	GetDlgItemText(IDC_ROTATION_Z, text);
-	selectedModel->rotation.z = _ttof(text);
+		GetDlgItemText(IDC_POSITION_Z, text);
+		selectedModel->position.z = _ttof(text);
 
 
 
-	GetDlgItemText(IDC_SCALE_X, text);
-	selectedModel->scale.z = _ttof(text);
+		GetDlgItemText(IDC_ROTATION_X, text);
+		selectedModel->rotation.x = _ttof(text);
 
-	GetDlgItemText(IDC_SCALE_Y, text);
-	selectedModel->scale.z = _ttof(text);
+		GetDlgItemText(IDC_ROTATION_Y, text);
+		selectedModel->rotation.y = _ttof(text);
 
-	GetDlgItemText(IDC_SCALE_Z, text);
-	selectedModel->scale.z = _ttof(text);
+		GetDlgItemText(IDC_ROTATION_Z, text);
+		selectedModel->rotation.z = _ttof(text);
+
+
+
+		GetDlgItemText(IDC_SCALE_X, text);
+		selectedModel->scale.x = _ttof(text);
+
+		GetDlgItemText(IDC_SCALE_Y, text);
+		selectedModel->scale.y = _ttof(text);
+
+		GetDlgItemText(IDC_SCALE_Z, text);
+		selectedModel->scale.z = _ttof(text);
+	}
 
 }

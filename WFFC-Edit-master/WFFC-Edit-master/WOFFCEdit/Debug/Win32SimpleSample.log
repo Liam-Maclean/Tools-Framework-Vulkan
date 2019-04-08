@@ -1,13 +1,15 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Win32SimpleSample.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MFCMain.cpp
+  TransformDialogue.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  Main.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  ModelPreviewDialogue.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  PreviewWindowRender.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(378): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\previewwindowrender.cpp(714): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(59): warning C4101: 'replacementFloat': unreferenced local variable
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(146): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(149): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(152): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(157): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(160): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(163): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(168): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(171): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(174): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Win32SimpleSample.vcxproj -> \\StuHome\HomeDrive5$\1503395\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Debug\WoFEdit.exe

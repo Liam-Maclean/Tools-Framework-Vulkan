@@ -36,7 +36,7 @@ public: //methods
 	void	onActionWireframeMode();
 	void	onActionLightEnabled();
 	void	onActionNormalEnabled();
-	bool	onActionTransformWindowEnabled(vk::wrappers::Model& modelOut);
+	vk::wrappers::Model* onActionTransformWindowEnabled();
 
 	void	UpdateModelTransform(vk::wrappers::Model& model, int id);
 
@@ -52,7 +52,7 @@ public:	//variables
 	//std::vector<SceneObject>    m_sceneGraph;	//our scenegraph storing all the objects in the current chunk
 	int m_selectedObjectID;						//ID of current Selection
 	std::string m_selectedObjectName;
-	std::vector<vk::wrappers::Model*> models;
+	std::vector<vk::wrappers::Model> models;
 private:	//methods
 	void	onContentAdded();
 

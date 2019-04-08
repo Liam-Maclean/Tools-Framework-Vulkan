@@ -23,6 +23,8 @@ std::string ToolMain::getCurrentSelectionName()
 
 void ToolMain::onActionInitialise(HWND handle, int width, int height)
 {
+
+	m_toolHandle = handle;
 	//window size, handle etc for directX
 	m_width		= width;
 	m_height	= height;
@@ -58,25 +60,24 @@ void ToolMain::onActionNormalEnabled()
 	ToggleNormalMode();
 }
 
-bool ToolMain::onActionTransformWindowEnabled(vk::wrappers::Model& modelOut)
+vk::wrappers::Model* ToolMain::onActionTransformWindowEnabled()
 {
+	vkQueueWaitIdle(_renderer->GetVulkanGraphicsQueue());
 	if (m_selectedObjectID != -1)
 	{
 		
-		modelOut = *models[m_selectedObjectID];
-		return true;
+		return &models[m_selectedObjectID];
 	}
 	else
 	{
-		MessageBox(m_toolHandle, L"Failed to load", L"failed to load", MB_OK);
-		return false;
+		return nullptr;
 	}
 }
 
-void ToolMain::UpdateModelTransform(vk::wrappers::Model & model, int id)
+void ToolMain::UpdateModelTransform(vk::wrappers::Model& model, int id)
 {
-	_models[id] = &model;
-	UpdateModelList(models);
+	models[id] = model;
+	UpdateSingularModelTransform(models, id);
 
 }
 
@@ -104,16 +105,16 @@ void ToolMain::onActionLoad()
 	//loop for each row in results until there are no more rows.  ie for every row in the results. We create and object
 	while (sqlite3_step(pResults) == SQLITE_ROW)
 	{	
-		models.push_back(new vk::wrappers::Model());
+		models.push_back(vk::wrappers::Model());
 		//Load model information for vulkan model
-		models.back()->position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
-		models.back()->rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
-		models.back()->scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
-		models.back()->model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
-		models.back()->texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
-		models.back()->name = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 44));
+		models.back().position = glm::vec4(sqlite3_column_double(pResults, 4), sqlite3_column_double(pResults, 5), sqlite3_column_double(pResults, 6), 1.0f);
+		models.back().rotation = glm::vec4(sqlite3_column_double(pResults, 7), sqlite3_column_double(pResults, 8), sqlite3_column_double(pResults, 9), 1.0f);
+		models.back().scale = glm::vec4(sqlite3_column_double(pResults, 10), sqlite3_column_double(pResults, 11), sqlite3_column_double(pResults, 12), 1.0f);
+		models.back().model_path  = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 2));
+		models.back().texture_path = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 3));
+		models.back().name = reinterpret_cast<const char*>(sqlite3_column_text(pResults, 44));
 
-		models.back()->ComputeMatrices();
+		models.back().ComputeMatrices();
 		//After everything has loaded, compute the matrices
 		
 		//
@@ -261,16 +262,19 @@ void ToolMain::Tick(MSG *msg)
 {
 	if (m_toolInputCommands.mouse_lb_down)
 	{
-		render = true;
-		m_selectedObjectID = MousePicking(m_toolInputCommands);
-		m_toolInputCommands.mouse_lb_down = false;
+		if (GetActiveWindow() == m_toolHandle)
+		{
+			render = true;
+			m_selectedObjectID = MousePicking(m_toolInputCommands);
+			m_toolInputCommands.mouse_lb_down = false;
+		}
 
 	}
 
 	//if (render == true)
 	//{
 		//Renderer Update Call
-		VulkanDeferredApplication::Update(WindowRECT);
+	VulkanDeferredApplication::Update(WindowRECT);
 	//}
 }
 
@@ -289,8 +293,9 @@ void ToolMain::UpdateInput(MSG * msg)
 		break;
 
 	case WM_MOUSEMOVE:
-		m_toolInputCommands.mouse_x = GET_X_LPARAM(msg->lParam);
-		m_toolInputCommands.mouse_y = GET_Y_LPARAM(msg->lParam);
+	
+			m_toolInputCommands.mouse_x = GET_X_LPARAM(msg->lParam);
+			m_toolInputCommands.mouse_y = GET_Y_LPARAM(msg->lParam);
 		break;
 
 	case WM_LBUTTONDOWN:	//mouse button down,  you will probably need to check when its up too
@@ -302,6 +307,11 @@ void ToolMain::UpdateInput(MSG * msg)
 	}
 	//here we update all the actual app functionality that we want.  This information will either be used int toolmain, or sent down to the renderer (Camera movement etc
 	//WASD movement
+	if (m_keyArray[VK_SPACE])
+	{
+		cameraUpdate == true ? cameraUpdate = false : cameraUpdate = true;
+	}
+
 	if (m_keyArray['W'])
 	{
 		m_toolInputCommands.forward = true;

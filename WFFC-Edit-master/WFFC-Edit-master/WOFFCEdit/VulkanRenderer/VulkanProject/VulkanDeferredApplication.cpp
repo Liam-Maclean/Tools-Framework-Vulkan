@@ -37,11 +37,17 @@ void VulkanDeferredApplication::Update(CRect screenRect)
 		//VulkanWindow::screenSize = screenRect;
 		//if (renderChange == true)
 		//{
-			VulkanDeferredApplication::CreateDeferredCommandBuffers();
+		
 		//	renderChange = false;
 		
 		//}
 		VulkanDeferredApplication::DrawFrame();
+		VulkanDeferredApplication::CreateDeferredCommandBuffers();
+
+		if (cameraUpdate)
+		{
+			//camera->HandleInput(_window);
+		}
 		//camera->HandleInput(_window);
 #else
 	//Update glfw window if the window is open
@@ -120,19 +126,29 @@ int VulkanDeferredApplication::MousePicking(InputCommands m_InputCommands)
 	//return 0;
 }
 
-void VulkanDeferredApplication::UpdateModelList(std::vector<vk::wrappers::Model*> models)
+void VulkanDeferredApplication::UpdateSingularModelTransform(std::vector<vk::wrappers::Model> models, int id)
+{
+	//wait for the gpu to be finished doing it's thing
+	vkQueueWaitIdle(_renderer->GetVulkanGraphicsQueue());
+	_models[id]->position = models[id].position;
+	_models[id]->scale = models[id].scale;
+	_models[id]->rotation = models[id].rotation;
+	_models[id]->ComputeMatrices();
+}
+
+void VulkanDeferredApplication::UpdateModelList(std::vector<vk::wrappers::Model> models)
 {
 	_models.clear();
 	for (int i = 0; i < models.size(); i++)
 	{
 		
 		_models.push_back(new vk::wrappers::Model());
-		_models[i]->position = models[i]->position;
-		_models[i]->scale = models[i]->scale;
-		_models[i]->rotation = models[i]->rotation;
-		_models[i]->model_path = models[i]->model_path;
-		_models[i]->texture_path = models[i]->texture_path;
-		_models[i]->model_matrix = models[i]->model_matrix;
+		_models[i]->position = models[i].position;
+		_models[i]->scale = models[i].scale;
+		_models[i]->rotation = models[i].rotation;
+		_models[i]->model_path = models[i].model_path;
+		_models[i]->texture_path = models[i].texture_path;
+		_models[i]->model_matrix = models[i].model_matrix;
 	}
 	//_models = models;
 }
@@ -580,8 +596,9 @@ void VulkanDeferredApplication::UpdateUniformBuffer(uint32_t currentImage)
 		glm::mat4* modelMat = (glm::mat4*)(((uint64_t)uboDataDynamic.model + (i * dynamicAlignment)));
 		VkSampler* modelSampler = (VkSampler*)(((uint64_t)uboTextureDataDynamic.sampler + (i * dynamicTextureAlignment)));
 
-		_models[i]->ComputeMatrices();
 		*modelMat = _models[i]->model_matrix;
+		_models[i]->ComputeMatrices();
+		
 	}
 
 	void* data3;

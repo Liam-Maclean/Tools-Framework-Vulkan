@@ -1,15 +1,26 @@
-﻿  VulkanDeferredApplication.cpp
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(79): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(108): warning C4101: 'collisionPoint': unreferenced local variable
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(107): warning C4101: 'collisionNormal': unreferenced local variable
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(126): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(631): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(716): warning C4244: 'initializing': conversion from 'const VkDeviceSize' to '::size_t', possible loss of data
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1220): warning C4018: '<': signed/unsigned mismatch
-\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\vulkanrenderer\vulkanproject\vulkandeferredapplication.cpp(1301): warning C4552: '-': operator has no effect; expected operator with side-effect
+﻿  MFCFrame.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MFCMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  Main.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  ToolMain.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\toolmain.cpp(96): warning C4101: 'pResultsChunk': unreferenced local variable
+  TransformDialogue.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(137): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(140): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(143): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(148): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(151): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(154): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(159): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(162): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\stuhome\homedrive5$\1503395\github\tools-framework-vulkan\wffc-edit-master\wffc-edit-master\woffcedit\transformdialogue.cpp(165): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating code
-  0 of 5455 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  6 of 5514 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    17 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Win32SimpleSample.vcxproj -> \\StuHome\HomeDrive5$\1503395\GitHub\Tools-Framework-Vulkan\WFFC-Edit-master\WFFC-Edit-master\WOFFCEdit\Release\WoFEdit.exe

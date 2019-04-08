@@ -143,8 +143,13 @@ namespace vk
 
 			void ComputeMatrices()
 			{
+				model_matrix = glm::mat4(1.0f);
 				model_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, position.z));
 				model_matrix = glm::scale(model_matrix, glm::vec3(scale.x, scale.y, scale.z));
+				model_matrix = glm::rotate(model_matrix, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+				model_matrix = glm::rotate(model_matrix, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+				model_matrix = glm::rotate(model_matrix, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+
 			}
 
 		};

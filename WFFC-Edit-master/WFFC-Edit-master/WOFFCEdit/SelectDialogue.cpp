@@ -15,7 +15,7 @@ BEGIN_MESSAGE_MAP(SelectDialogue, CDialogEx)
 END_MESSAGE_MAP()
 
 
-SelectDialogue::SelectDialogue(CWnd* pParent, std::vector<vk::wrappers::Model*> SceneGraph)		//constructor used in modal
+SelectDialogue::SelectDialogue(CWnd* pParent, std::vector<vk::wrappers::Model> SceneGraph)		//constructor used in modal
 	: CDialogEx(IDD_DIALOG1, pParent)
 {
 	sceneModels = SceneGraph;
@@ -31,7 +31,7 @@ SelectDialogue::~SelectDialogue()
 }
 
 ///pass through pointers to the data in the tool we want to manipulate
-void SelectDialogue::SetObjectData(std::vector<vk::wrappers::Model*> SceneGraph, int * selection)
+void SelectDialogue::SetObjectData(std::vector<vk::wrappers::Model> SceneGraph, int * selection)
 {
 	sceneModels = SceneGraph;
 	m_currentSelection = selection;
@@ -44,7 +44,7 @@ void SelectDialogue::SetObjectData(std::vector<vk::wrappers::Model*> SceneGraph,
 		std::wstring listBoxEntry;
 		//listBoxEntry.assign()
 		//std::to_wstring(&sceneModels->at(i)->name)
-		listBoxEntry.assign(sceneModels.at(i)->name.begin(), sceneModels.at(i)->name.end());
+		listBoxEntry.assign(sceneModels.at(i).name.begin(), sceneModels.at(i).name.end());
 		m_listBox.AddString(listBoxEntry.c_str());
 	}
 }

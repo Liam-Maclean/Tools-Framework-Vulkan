@@ -57,7 +57,8 @@ public:
 	}descriptorSets;
 
 	int MousePicking(InputCommands m_InputCommands);
-	void UpdateModelList(std::vector<vk::wrappers::Model*> models);
+	void UpdateSingularModelTransform(std::vector<vk::wrappers::Model> models, int id);
+	void UpdateModelList(std::vector<vk::wrappers::Model> models);
 	void CreateCamera();
 	void InitialiseVulkanApplication();
 	void Update(CRect screenRect);
@@ -118,6 +119,8 @@ public:
 		}
 
 	}
+
+	bool cameraUpdate = false;
 
 
 

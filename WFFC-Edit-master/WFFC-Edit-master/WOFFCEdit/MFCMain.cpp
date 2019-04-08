@@ -85,11 +85,10 @@ int MFCMain::Run()
 			m_ToolSystem->Tick(&msg);
 
 
-			if (m_ToolModelPreviewDialogue)
+			if (m_ToolTransformationDialogue)
 			{
 				vk::wrappers::Model model;
 				m_ToolTransformationDialogue.HandBackModel(model);
-
 				m_ToolSystem->UpdateModelTransform(model, ID);
 			}
 
@@ -153,11 +152,10 @@ void MFCMain::ModelPreviewButton()
 
 void MFCMain::transformationButton()
 {
-	vk::wrappers::Model* modelSelected = new vk::wrappers::Model();
 	m_ToolTransformationDialogue.Create(IDD_TRANSFORMATION_DIALOG);
-	m_ToolSystem->onActionTransformWindowEnabled(*modelSelected);
-	m_ToolTransformationDialogue.HandModel(modelSelected);
+	m_ToolTransformationDialogue.HandModel(m_ToolSystem->onActionTransformWindowEnabled());
 	m_ToolTransformationDialogue.ShowWindow(SW_SHOW);
+	
 }
 
 
